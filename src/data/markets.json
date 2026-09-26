@@ -1,0 +1,294 @@
+[
+  {
+    "id": "heritage-square-farmers-market",
+    "name": "Heritage Square Market",
+    "tagline": "Century-old pavilion gathering of heirloom orchardists & artisan cheesemakers",
+    "region": "Historic Downtown",
+    "address": "450 Heritage Way, Pavilion Plaza, Downtown",
+    "lat": 37.7749,
+    "lng": -122.4194,
+    "operatingHours": [
+      { "day": "Wednesday", "open": "10:00", "close": "15:00" },
+      { "day": "Saturday", "open": "08:00", "close": "14:00" },
+      { "day": "Sunday", "open": "09:00", "close": "13:30" }
+    ],
+    "openDays": ["Wednesday", "Saturday", "Sunday"],
+    "rating": 4.9,
+    "reviewCount": 218,
+    "yearEstablished": 1912,
+    "amenities": ["EBT / SNAP Accepted", "Dog Friendly Patio", "Live Folk String Band", "Bicycle Valet", "Compost Drop-Off", "Covered Pavilion"],
+    "coverImage": "https://images.unsplash.com/photo-1488459716781-31db52582fe9?auto=format&fit=crop&w=1000&q=80",
+    "produceTypes": ["Heirloom Apples", "Wild Forest Mushrooms", "Raw Artisan Honey", "Pasture-Raised Eggs", "Stone-Ground Flour", "Artisan Goat Chevre", "Rainbow Chard"],
+    "description": "Nestled beneath the ironwork archways of the historic timber pavilion, Heritage Square Market is the cultural cornerstone of the regional slow-food movement. Founded over a century ago, it features multi-generational farm families bringing dew-drenched heritage produce, fresh-churned butter, sourdough boules, and cold-pressed cider.",
+    "vendors": [
+      {
+        "name": "Alder Creek Orchard",
+        "stall": "Stall 14-A",
+        "specialty": "Crisp Honeycrisp, Roxbury Russet & Spiced Cider",
+        "organicCertified": true,
+        "bio": "Cider makers since 1948, preserving heritage apple varieties."
+      },
+      {
+        "name": "Highland Valley Creamery",
+        "stall": "Stall 08-B",
+        "specialty": "Raw Goat Chevre, Aged Tomme & Ash-Ripened Pyramids",
+        "organicCertified": true,
+        "bio": "Pasture-foraged alpine dairy herd crafted into artisan wheels."
+      },
+      {
+        "name": "Timberline Foraging Co.",
+        "stall": "Stall 21",
+        "specialty": "Golden Chanterelles, Black Morels & Pine Cone Honey",
+        "organicCertified": false,
+        "bio": "Wild-foraged forest harvest gathered by licensed mycologists."
+      },
+      {
+        "name": "Copper Kettle Sourdough",
+        "stall": "Stall 03",
+        "specialty": "36-Hour Fermented Country Boules & Spelt Focaccia",
+        "organicCertified": true,
+        "bio": "Stone-ground local organic grains baked in portable wood embers."
+      }
+    ],
+    "transportTip": "Take the Central Tram to Civic Square station or park your bicycle at the complimentary valet along the north arcade.",
+    "parking": "Dedicated underground garage with 2-hour free stamp; ample public racks.",
+    "seasonalityNote": "Peak harvest arrivals hit stalls from 8:30 AM on Saturdays."
+  },
+  {
+    "id": "coastal-harbor-wharf-market",
+    "name": "Coastal Harbor Wharf Market",
+    "tagline": "Sea-breeze open-air stalls brimming with salt-marsh greens, berries & fresh catch",
+    "region": "Coastal Harbor",
+    "address": "120 Fisherman's Pier Road, Berth 7",
+    "lat": 37.8080,
+    "lng": -122.4098,
+    "operatingHours": [
+      { "day": "Tuesday", "open": "11:00", "close": "16:00" },
+      { "day": "Thursday", "open": "11:00", "close": "16:00" },
+      { "day": "Saturday", "open": "07:30", "close": "13:00" }
+    ],
+    "openDays": ["Tuesday", "Thursday", "Saturday"],
+    "rating": 4.8,
+    "reviewCount": 164,
+    "yearEstablished": 1968,
+    "amenities": ["EBT / SNAP Accepted", "Oceanfront Seating", "Live Accordion", "Fishmonger Filleting Service", "Zero-Waste Stalls"],
+    "coverImage": "https://images.unsplash.com/photo-1533900298318-6b8da08a523e?auto=format&fit=crop&w=1000&q=80",
+    "produceTypes": ["Sea Samphire", "Sweet Coastal Strawberries", "Meyer Lemons", "Purple Artichokes", "Heirloom Garlic", "Smoked Dulse"],
+    "description": "Set directly upon weathered cedar dock planks beside the fishing fleet, this maritime gathering celebrates the convergence of tide and soil. Farmers from coastal mist valleys bring sweet alpine strawberries and heirloom artichokes alongside cooperative day-boat line-caught wild fish.",
+    "vendors": [
+      {
+        "name": "Pacific Fog Farm",
+        "stall": "Pier Berth 2",
+        "specialty": "Albion Strawberries & Coastal Meyer Lemons",
+        "organicCertified": true,
+        "bio": "Dry-farmed coastal flats nurtured by marine fog."
+      },
+      {
+        "name": "Salicornia Saltworks",
+        "stall": "Pier Berth 6",
+        "specialty": "Crisp Sea Beans, Flake Salt & Sea Fennel",
+        "organicCertified": false,
+        "bio": "Hand-harvested coastal marsh edibles and solar-evaporated sea minerals."
+      },
+      {
+        "name": "Tide & Trough Apiaries",
+        "stall": "Pier Berth 9",
+        "specialty": "Coastal Sage & Eucalyptus Amber Honey",
+        "organicCertified": true,
+        "bio": "Coastal wildflower honey extracted with raw centrifugal spinning."
+      }
+    ],
+    "transportTip": "Ferry terminal Gate 3 is a 4-minute stroll; coastal bus line #18 stops at the pier entrance.",
+    "parking": "Metered dockside parking or discounted pier garage validation with purchase.",
+    "seasonalityNote": "Coastal berries run from early spring straight into late autumn."
+  },
+  {
+    "id": "riverdale-greenbelt-commons",
+    "name": "Riverdale Greenbelt Commons",
+    "tagline": "Riverside lawn community hub with biodynamic roots, raw milk & kid workshops",
+    "region": "Riverdale Greenbelt",
+    "address": "88 Riverside Promenade, Park Meadow",
+    "lat": 37.7560,
+    "lng": -122.4430,
+    "operatingHours": [
+      { "day": "Sunday", "open": "08:30", "close": "14:00" },
+      { "day": "Thursday", "open": "14:00", "close": "19:00" }
+    ],
+    "openDays": ["Thursday", "Sunday"],
+    "rating": 4.9,
+    "reviewCount": 312,
+    "yearEstablished": 1994,
+    "amenities": ["EBT / SNAP Double Bucks", "Kids Farm Science Tent", "Bicycle Repair Stand", "Dog Agility Green", "Live Bluegrass"],
+    "coverImage": "https://images.unsplash.com/photo-1506484381205-f7945653044d?auto=format&fit=crop&w=1000&q=80",
+    "produceTypes": ["Rainbow Carrots", "Biodynamic Kale", "Heirloom Tomatoes", "Pasture Eggs", "Raw Jersey Cow Milk", "Wild Ramps"],
+    "description": "Spilling across lush riverside green lawns shaded by weeping willows, Riverdale is an idyllic Sunday ritual for families, chefs, and gardening enthusiasts. Vendors prioritize regenerative agriculture and minimal packaging.",
+    "vendors": [
+      {
+        "name": "Earthbound Willow Farm",
+        "stall": "Lawn Plot 1",
+        "specialty": "Biodynamic Heritage Greens & Rainbow Carrots",
+        "organicCertified": true,
+        "bio": "Holistic agriculture without chemical inputs for 30 seasons."
+      },
+      {
+        "name": "Meadowbrook Pastures",
+        "stall": "Lawn Plot 7",
+        "specialty": "Grass-fed Raw Jersey Milk, Butter & Free-Range Yolks",
+        "organicCertified": true,
+        "bio": "Heritage A2 Jersey cattle rotational grazed on clover pastures."
+      },
+      {
+        "name": "Wild Spring Herb Co.",
+        "stall": "Lawn Plot 12",
+        "specialty": "Culinary Lavender, Wild Ramps & Fresh Tarragon",
+        "organicCertified": true,
+        "bio": "Hand-cut culinary herbs and botanical teas."
+      }
+    ],
+    "transportTip": "Direct access via Riverdale Greenway Bike Trail. Dedicated stroller & bike parking at south kiosk.",
+    "parking": "Free meadow grass parking lot with electric vehicle charging stations.",
+    "seasonalityNote": "Arrive before 10 AM on Sundays for coveted raw milk and spring ramps."
+  },
+  {
+    "id": "north-valley-harvest-sheds",
+    "name": "North Valley Harvest Sheds",
+    "tagline": "Rustic timber sheds celebrating stone fruits, heirloom corn & small-batch olive pressings",
+    "region": "North Valley",
+    "address": "1200 Old Mill Road, Valley Crossroads",
+    "lat": 37.7950,
+    "lng": -122.4500,
+    "operatingHours": [
+      { "day": "Tuesday", "open": "09:00", "close": "13:00" },
+      { "day": "Friday", "open": "09:00", "close": "14:00" },
+      { "day": "Saturday", "open": "08:00", "close": "14:30" }
+    ],
+    "openDays": ["Tuesday", "Friday", "Saturday"],
+    "rating": 4.7,
+    "reviewCount": 140,
+    "yearEstablished": 1976,
+    "amenities": ["EBT / SNAP Accepted", "Olive Oil Tasting Bar", "Wheelchair Accessible", "On-site Knife Sharpening", "Coffee Roaster Shed"],
+    "coverImage": "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=1000&q=80",
+    "produceTypes": ["Yellow Peaches", "Black Mission Figs", "Cold-Pressed Olive Oil", "Delicata Squash", "Purple Asparagus", "Heirloom Garlic"],
+    "description": "Surrounded by rolling orchards and vine terraces, North Valley Harvest Sheds feels like stepping into a Mediterranean countryside feast. Timber roofs protect rows of sun-drenched stone fruits, hand-pressed varietal olive oils, and cured mountain sausages.",
+    "vendors": [
+      {
+        "name": "Sunridge Grove Olives",
+        "stall": "Shed A-4",
+        "specialty": "First Cold Press Mission Olive Oil & Cured Olives",
+        "organicCertified": true,
+        "bio": "Centennial dry-farmed olive trees harvested each November."
+      },
+      {
+        "name": "Valley Orchard Estates",
+        "stall": "Shed B-1",
+        "specialty": "Cal Red Peaches, Mission Figs & Blenheim Apricots",
+        "organicCertified": false,
+        "bio": "Tree-ripened fruit picked within 12 hours of display."
+      },
+      {
+        "name": "Oak & Iron Apiary",
+        "stall": "Shed B-8",
+        "specialty": "Creamed Wildflower Honey & Pure Beeswax Tapres",
+        "organicCertified": true,
+        "bio": "Sustainably managed colonies supporting regional pollination."
+      }
+    ],
+    "transportTip": "Valley Express Bus #42 drops off right in front of the main red barn.",
+    "parking": "Large gravel lot with 200 free parking stalls.",
+    "seasonalityNote": "Peach season peaks in July-August; olive pressings arrive late November."
+  },
+  {
+    "id": "highland-hills-botanical-market",
+    "name": "Highland Hills Botanical Market",
+    "tagline": "Elevated terrace market spotlighting microgreens, rare tubers & medicinal herb gardens",
+    "region": "Highland Hills",
+    "address": "742 Skyline Ridge Boulevard, Vista Point",
+    "lat": 37.7420,
+    "lng": -122.4600,
+    "operatingHours": [
+      { "day": "Wednesday", "open": "12:00", "close": "18:00" },
+      { "day": "Saturday", "open": "09:00", "close": "15:00" }
+    ],
+    "openDays": ["Wednesday", "Saturday"],
+    "rating": 4.9,
+    "reviewCount": 189,
+    "yearEstablished": 2005,
+    "amenities": ["EBT / SNAP Accepted", "Herbal Consultation Desk", "Panoramic Skyline Views", "Pet Water Stations", "Solar Powered Stalls"],
+    "coverImage": "https://images.unsplash.com/photo-1516594798947-e65505dbb29d?auto=format&fit=crop&w=1000&q=80",
+    "produceTypes": ["Microgreens", "Medicinal Mushrooms", "Sunchokes", "Wild Black Garlic", "Blood Oranges", "Purple Broccoli"],
+    "description": "Perched on a cool mountain overlook with sweeping panoramic bay views, Highland Hills brings together experimental urban agronomists, permaculturists, and botanists. Renowned for nutrient-dense micro-greens, rare varieties of edible tubers, and culinary mushrooms.",
+    "vendors": [
+      {
+        "name": "Cloudline Micro-Farms",
+        "stall": "Terrace 3",
+        "specialty": "Radish & Pea Tendrils, Sunflower Shoots & Amaranth",
+        "organicCertified": true,
+        "bio": "Vertical closed-loop hydro greens harvested with the root systems intact."
+      },
+      {
+        "name": "Spore & Root Collective",
+        "stall": "Terrace 7",
+        "specialty": "Lion's Mane, Reishi Powders & Oak Log Shiitake",
+        "organicCertified": true,
+        "bio": "Grown on inoculated hardwood logs sourced from sustainable forest thinnings."
+      },
+      {
+        "name": "Ridgecrest Botanicals",
+        "stall": "Terrace 11",
+        "specialty": "Fermented Black Garlic, Herbal Elixirs & Shrub Vinegars",
+        "organicCertified": true,
+        "bio": "Traditional Korean 60-day slow fermentation and whole food tonics."
+      }
+    ],
+    "transportTip": "Ridge Cable Line stops at Vista Point; shuttle service runs hourly on Saturdays.",
+    "parking": "Vista terrace parking lot with designated carpool stalls.",
+    "seasonalityNote": "Cool highland air keeps crisp greens and brassicas sweet all summer long."
+  },
+  {
+    "id": "old-town-plaza-farmers-exchange",
+    "name": "Old Town Plaza Farmers Exchange",
+    "tagline": "Cobblestone evening market featuring artisan breads, heritage pork & heirloom tomatoes",
+    "region": "Old Town Plaza",
+    "address": "15 Plaza San Carlos, Cobblestone Court",
+    "lat": 37.7680,
+    "lng": -122.4250,
+    "operatingHours": [
+      { "day": "Thursday", "open": "16:00", "close": "20:30" },
+      { "day": "Sunday", "open": "09:00", "close": "14:00" }
+    ],
+    "openDays": ["Thursday", "Sunday"],
+    "rating": 4.8,
+    "reviewCount": 245,
+    "yearEstablished": 1988,
+    "amenities": ["EBT / SNAP Accepted", "Twilight Lantern Lighting", "Prepared Hot Food Row", "Craft Cider Tastings", "Seated Plaza Benches"],
+    "coverImage": "https://images.unsplash.com/photo-1543083477-4f785aeafaa9?auto=format&fit=crop&w=1000&q=80",
+    "produceTypes": ["Heirloom Brandywine Tomatoes", "Sweet Corn", "Aged Farmstead Cheddar", "Pasture Pork Sausages", "Sour Cherries"],
+    "description": "On Thursday evenings and Sunday mornings, the 19th-century Spanish tile plaza transforms into an atmospheric community square. Lanterns hang from wrought-iron lampposts while live flamenco and acoustic jazz fill the evening air as locals pick up dinner ingredients.",
+    "vendors": [
+      {
+        "name": "Mission Valley Heirlooms",
+        "stall": "Plaza East 2",
+        "specialty": "Brandywine, Cherokee Purple & Green Zebra Tomatoes",
+        "organicCertified": true,
+        "bio": "Preserving open-pollinated seed varieties with unmatched vine flavor."
+      },
+      {
+        "name": "Oak Hollow Pastures",
+        "stall": "Plaza West 5",
+        "specialty": "Pasture-Raised Berkshire Pork, Bacon & Sage Links",
+        "organicCertified": false,
+        "bio": "Acorn-finished heritage hogs raised in open oak savannahs."
+      },
+      {
+        "name": "Old Hearth Bakery",
+        "stall": "Plaza North 1",
+        "specialty": "Baguettes, Olive Ciabatta & Seasonal Galettes",
+        "organicCertified": true,
+        "bio": "Natural levain naturally fermented with whole heritage wheat."
+      }
+    ],
+    "transportTip": "Take the metro to Plaza Station; pedestrian walkway exits straight into the stalls.",
+    "parking": "Municipal garage on San Carlos St — first 90 minutes free.",
+    "seasonalityNote": "Thursday Twilight Market runs through late October."
+  }
+]

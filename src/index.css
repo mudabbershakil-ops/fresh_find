@@ -1,0 +1,261 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-primary: #F7F5ED;
+    --bg-card: #FFFFFF;
+    --brand-pine: #2D5A27;
+    --brand-pine-dark: #1E3D1A;
+    --brand-pine-hover: #23461e;
+    --brand-terracotta: #E2725B;
+    --brand-terracotta-dark: #C45742;
+    --text-main: #1C241B;
+    --text-muted: #5C685B;
+    --badge-amber: #F3E8B1;
+    --border-crisp: #D6D3C7;
+    --border-light: #E7E4D8;
+  }
+
+  html, body {
+    max-width: 100%;
+    overflow-x: clip;
+    overflow-y: visible;
+  }
+
+  body {
+    background-color: var(--bg-primary);
+    color: var(--text-main);
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    min-height: 100vh;
+  }
+
+  h1, h2, h3, h4, .font-editorial {
+    font-family: 'Playfair Display', Georgia, serif;
+    letter-spacing: -0.015em;
+  }
+}
+
+/* Crisp tactile borders & offsets */
+.border-crisp {
+  border: 1px solid var(--border-crisp);
+}
+
+.border-subtle {
+  border: 1px solid var(--border-light);
+}
+
+.shadow-tactile-sm {
+  box-shadow: 2px 2px 0px 0px rgba(45, 90, 39, 0.12);
+}
+
+.shadow-tactile {
+  box-shadow: 2px 3px 0px 0px rgba(45, 90, 39, 0.16);
+}
+
+.shadow-tactile-lg {
+  box-shadow: 4px 4px 0px 0px rgba(45, 90, 39, 0.22);
+}
+
+.shadow-pine {
+  box-shadow: 3px 3px 0px 0px #2D5A27;
+}
+
+.shadow-terracotta {
+  box-shadow: 3px 3px 0px 0px #E2725B;
+}
+
+/* ========================================================
+   TECHWIZ 7: TACTILE BUTTONS & HOVER TRANSITIONS
+   ======================================================== */
+
+/* Primary CTA Button (Forest Pine) */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: var(--brand-pine);
+  color: #FFFFFF;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: 1px solid var(--brand-pine-dark);
+  box-shadow: 3px 3px 0px 0px var(--brand-pine-dark);
+  cursor: pointer;
+  transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  background-color: var(--brand-pine-hover);
+  box-shadow: 3px 5px 0px 0px rgba(45, 90, 39, 0.25);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+  box-shadow: 0px 0px 0px 0px transparent;
+}
+
+/* Secondary CTA Button (Warm Linen / White) */
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: #FFFFFF;
+  color: var(--text-main);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: 1px solid var(--border-crisp);
+  box-shadow: 2px 3px 0px 0px rgba(45, 90, 39, 0.16);
+  cursor: pointer;
+  transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-secondary:hover {
+  transform: translateY(-2px);
+  background-color: rgba(243, 232, 177, 0.35);
+  color: var(--brand-pine);
+  border-color: var(--brand-pine);
+  box-shadow: 3px 5px 0px 0px rgba(45, 90, 39, 0.22);
+}
+
+.btn-secondary:active {
+  transform: translateY(0);
+  box-shadow: 0px 0px 0px 0px transparent;
+}
+
+/* Terracotta Accent Button */
+.btn-terracotta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: var(--brand-terracotta);
+  color: #FFFFFF;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: 1px solid var(--brand-terracotta-dark);
+  box-shadow: 3px 3px 0px 0px var(--brand-terracotta-dark);
+  cursor: pointer;
+  transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-terracotta:hover {
+  transform: translateY(-2px);
+  background-color: var(--brand-terracotta-dark);
+  box-shadow: 3px 5px 0px 0px rgba(226, 114, 91, 0.35);
+}
+
+.btn-terracotta:active {
+  transform: translateY(0);
+  box-shadow: 0px 0px 0px 0px transparent;
+}
+
+/* ========================================================
+   TECHWIZ 7: CARDS & INTERACTIVE LIFT
+   ======================================================== */
+
+.card-editorial {
+  background-color: #FFFFFF;
+  border: 1px solid var(--border-crisp);
+  box-shadow: 2px 3px 0px 0px rgba(45, 90, 39, 0.16);
+  transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1), border-color 200ms ease;
+}
+
+.card-editorial:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 15px -3px rgba(45, 90, 39, 0.12), 0 4px 6px -4px rgba(45, 90, 39, 0.08);
+  border-color: var(--brand-pine);
+}
+
+/* Interactive Filter & Chip Pills */
+.filter-pill {
+  cursor: pointer;
+  transition: transform 180ms ease, background-color 180ms ease, border-color 180ms ease, color 180ms ease;
+  user-select: none;
+}
+
+.filter-pill:hover {
+  transform: scale(1.03);
+}
+
+.filter-pill:active {
+  transform: scale(0.96);
+}
+
+/* Icon / Mini Button tactile press */
+.btn-icon-tactile {
+  cursor: pointer;
+  transition: transform 180ms ease, background-color 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.btn-icon-tactile:hover {
+  transform: translateY(-1.5px);
+  box-shadow: 2px 3px 0px 0px rgba(45, 90, 39, 0.18);
+}
+
+.btn-icon-tactile:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* Custom scrollbars matching linen feel */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #EFECE1;
+}
+::-webkit-scrollbar-thumb {
+  background: #C4BEAF;
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #2D5A27;
+}
+
+/* Custom Leaflet popup editorial styling */
+.leaflet-popup-content-wrapper {
+  background: #FFFFFF !important;
+  color: #1C241B !important;
+  border: 1px solid #D6D3C7 !important;
+  border-radius: 2px !important;
+  box-shadow: 3px 4px 0px 0px rgba(45, 90, 39, 0.2) !important;
+  padding: 0 !important;
+  overflow: hidden;
+}
+.leaflet-popup-content {
+  margin: 12px 14px !important;
+  line-height: 1.4 !important;
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+}
+.leaflet-popup-tip {
+  background: #FFFFFF !important;
+  border: 1px solid #D6D3C7 !important;
+}
+
+/* Contain Leaflet Map Z-Index below sticky navigation header */
+.leaflet-container {
+  z-index: 10 !important;
+}
+
+.leaflet-pane {
+  z-index: 10 !important;
+}
+
+.leaflet-top,
+.leaflet-bottom {
+  z-index: 20 !important;
+}
+
+.leaflet-control {
+  z-index: 20 !important;
+}
+

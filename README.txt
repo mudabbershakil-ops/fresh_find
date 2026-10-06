@@ -10,15 +10,6 @@ Theme      : eGreen Basket
 Platform   : Client-Side Single Page Application (SPA)
 Version    : 1.0 (Final Submission)
 
---------------------------------------------------------------------------------
-TEAM MEMBERS & ROLES
---------------------------------------------------------------------------------
-1. Burhan Hussain (Student ID: 1696207) - Project Lead & Frontend Developer
-2. Yousuf        (Student ID: 1696208) - UI/UX & Theme Designer
-3. Mudabber      (Student ID: 1696209) - JavaScript & Dynamic Logic Specialist
-4. Saad          (Student ID: 1696210) - QA & Testing Specialist
-5. Saboor        (Student ID: 1696211) - Technical Documentation Specialist
-
 ================================================================================
 1. PREREQUISITES & SYSTEM REQUIREMENTS
 ================================================================================

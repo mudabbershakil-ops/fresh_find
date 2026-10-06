@@ -6,7 +6,7 @@ import {
 } from 'lucide-react';
 
 export default function Contact() {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData]= useState({
     name: '',
     email: '',
     subject: 'General Inquiry',
@@ -14,27 +14,28 @@ export default function Contact() {
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submittedMessage, setSubmittedMessage] = useState(null);
+  const [submittedMessage, setSubmittedMessage]= useState(null);
 
-  const subjects = [
+  var subjects = [
     'General Inquiry',
     'Vendor & Stall Application',
     'Market Community Feedback',
     'Technical Support & Suggestions'
   ];
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
+  let handleChange  = (e) => {
+    const { name, value }  = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
+
   };
 
-  const handleSubmit = (e) => {
+  var handleSubmit = (e) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) return;
 
     setIsSubmitting(true);
 
-    // Simulate sending network request
+    
     setTimeout(() => {
       setIsSubmitting(false);
       setSubmittedMessage(`Thank you, ${formData.name}! Your message has been routed to our regional market coordinator.`);
@@ -49,7 +50,7 @@ export default function Contact() {
 
   return (
     <div className="bg-[#F7F5ED] min-h-screen text-[#1C241B]">
-      {/* Breadcrumb Header */}
+      
       <div className="border-b border-crisp bg-[#EDEAE0]/60 py-3 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto flex items-center justify-between text-xs font-mono text-[#5C685B]">
           <div className="flex items-center gap-2">
@@ -61,11 +62,12 @@ export default function Contact() {
         </div>
       </div>
 
-      {/* Hero Section */}
+      
       <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 border-b border-crisp bg-radial-gradient">
         <div className="max-w-4xl mx-auto text-center space-y-4">
           <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#2D5A27]/10 border border-[#2D5A27]/30 text-[#2D5A27] text-xs font-mono uppercase tracking-widest rounded-full font-bold">
             <Mail className="w-3.5 h-3.5" />
+
             <span>Field Communications</span>
           </div>
 
@@ -79,10 +81,11 @@ export default function Contact() {
         </div>
       </section>
 
-      {/* Main Content: Form + Sidebar */}
+
+      
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12">
-          {/* Contact Form Container */}
+          
           <div className="lg:col-span-7">
             <div className="bg-white border-2 border-[#1C241B] p-6 sm:p-10 shadow-[6px_8px_0px_0px_rgba(28,36,27,0.15)] rounded-sm">
               <div className="mb-6">
@@ -138,6 +141,7 @@ export default function Contact() {
                       placeholder="roland@soilcraft.org"
                       className="w-full px-3.5 py-2.5 text-sm bg-[#F7F5ED]/40 border border-[#D6D3C7] focus:border-[#2D5A27] focus:ring-1 focus:ring-[#2D5A27] outline-none rounded-sm transition font-sans"
                     />
+
                   </div>
                 </div>
 
@@ -171,6 +175,7 @@ export default function Contact() {
                     onChange={handleChange}
                     placeholder="Tell us about your farmstead, feedback on weekend stalls, or questions regarding SNAP double tokens..."
                     className="w-full px-3.5 py-2.5 text-sm bg-[#F7F5ED]/40 border border-[#D6D3C7] focus:border-[#2D5A27] focus:ring-1 focus:ring-[#2D5A27] outline-none rounded-sm transition font-sans leading-relaxed"
+
                   />
                 </div>
 
@@ -197,9 +202,9 @@ export default function Contact() {
             </div>
           </div>
 
-          {/* Details Sidebar */}
+          
           <div className="lg:col-span-5 space-y-6">
-            {/* Field Office Coordinates */}
+            
             <div className="bg-[#EDEAE0] border border-crisp p-6 sm:p-7 shadow-tactile space-y-5">
               <div className="flex items-center gap-2 pb-3 border-b border-[#D6D3C7]">
                 <div className="w-8 h-8 bg-[#2D5A27] text-[#F3E8B1] flex items-center justify-center rounded-sm">
@@ -224,6 +229,7 @@ export default function Contact() {
                       412 Heritage Arcade, Pavilion Suite 3B<br />
                       Historic Old Town Plaza District
                     </p>
+
                   </div>
                 </div>
 
@@ -259,9 +265,10 @@ export default function Contact() {
                   </div>
                 </div>
               </div>
+
             </div>
 
-            {/* Field Guide Bot Assistant Callout */}
+            
             <div className="bg-[#1C241B] text-[#F7F5ED] border border-[#2D5A27] p-6 shadow-tactile space-y-4">
               <div className="flex items-center gap-2">
                 <MessageSquare className="w-5 h-5 text-[#F3E8B1]" />
@@ -280,8 +287,9 @@ export default function Contact() {
               </div>
             </div>
 
-            {/* Vendor Charter Reminder */}
+            
             <div className="bg-white border border-crisp p-5 text-xs text-[#5C685B] space-y-2">
+
               <div className="flex items-center gap-1.5 text-[#2D5A27] font-bold font-mono uppercase tracking-wider text-[11px]">
                 <ShieldCheck className="w-3.5 h-3.5" />
                 <span>Vendor Charter Rule</span>
@@ -295,6 +303,7 @@ export default function Contact() {
               >
                 <span>Read the Three Pillars</span>
                 <ArrowRight className="w-3 h-3" />
+
               </Link>
             </div>
           </div>

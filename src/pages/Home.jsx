@@ -7,26 +7,28 @@ import {
 } from 'lucide-react';
 import marketsData from '../data/markets.json';
 import produceData from '../data/produce.json';
+
 import { useSaved } from '../context/SavedContext';
 import { getMarketCurrentStatus } from '../utils/marketSchedule';
 
-const DEFAULT_BOTANICAL_IMAGE = "https://images.unsplash.com/photo-1610832958506-aa56368176cf?auto=format&fit=crop&w=600&q=80";
+let DEFAULT_BOTANICAL_IMAGE  = "https://images.unsplash.com/photo-1610832958506-aa56368176cf?auto=format&fit=crop&w=600&q=80";
 
 export default function Home() {
-  const { toggleSaveMarket, isMarketSaved, toggleSaveProduce, isProduceSaved } = useSaved();
+  const { toggleSaveMarket, isMarketSaved, toggleSaveProduce, isProduceSaved }  = useSaved();
 
-  const featuredMarkets = marketsData.slice(0, 3);
-  const spotlightProduce = produceData.find((p) => p.id === 'honeycrisp-apple') || produceData[0];
-  const seasonalProduce = produceData.slice(0, 4);
+
+  var featuredMarkets= marketsData.slice(0, 3);
+  var spotlightProduce = produceData.find((p) => p.id == 'honeycrisp-apple') || produceData[0];
+  let seasonalProduce= produceData.slice(0, 4);
 
   return (
     <div className="space-y-16 sm:space-y-24">
-      {/* 1. EDITORIAL HERO SECTION */}
+      
       <section className="relative pt-6 sm:pt-12 pb-12 sm:pb-20 border-b border-crisp">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             
-            {/* Left Narrative Column */}
+            
             <div className="lg:col-span-7 space-y-6">
               <div className="inline-flex items-center gap-2 px-3 py-1 bg-white border border-[#2D5A27]/30 text-xs font-mono uppercase tracking-wider text-[#2D5A27] shadow-tactile-sm">
                 <Leaf className="w-3.5 h-3.5 text-[#E2725B]" />
@@ -35,13 +37,15 @@ export default function Home() {
 
               <h1 className="font-editorial text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-[#1C241B] leading-[1.08]">
                 Where Soil Meets the Town Square.
+
               </h1>
 
               <p className="text-base sm:text-lg text-[#5C685B] leading-relaxed max-w-2xl">
+
                 A human-crafted directory connecting conscious eaters with independent orchardists, raw cheesemakers, and wild foragers. Track real-time market hours, discover peak harvest produce, and plan your weekend farm haul.
               </p>
 
-              {/* Action Buttons: Primary & Secondary with Tactile Hover */}
+              
               <div className="flex flex-wrap items-center gap-4 pt-2">
                 <Link
                   to="/markets"
@@ -60,7 +64,8 @@ export default function Home() {
                 </Link>
               </div>
 
-              {/* Community Metrics Strip */}
+
+              
               <div className="pt-6 border-t border-crisp grid grid-cols-3 gap-4 max-w-lg">
                 <div className="group cursor-default">
                   <span className="block font-editorial text-2xl sm:text-3xl font-bold text-[#2D5A27] group-hover:scale-105 transition-transform origin-left">
@@ -70,12 +75,15 @@ export default function Home() {
                     Verified Pavilions
                   </span>
                 </div>
+
                 <div className="group cursor-default">
                   <span className="block font-editorial text-2xl sm:text-3xl font-bold text-[#E2725B] group-hover:scale-105 transition-transform origin-left">
+
                     12+
                   </span>
                   <span className="block text-xs uppercase tracking-wider text-[#5C685B] font-mono mt-0.5">
                     Peak Crops
+
                   </span>
                 </div>
                 <div className="group cursor-default">
@@ -89,7 +97,7 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Right Featured Archival Card */}
+            
             <div className="lg:col-span-5">
               <div className="relative bg-white border border-crisp p-4 sm:p-5 shadow-tactile-lg rotate-1 hover:rotate-0 hover:-translate-y-1 hover:shadow-xl transition-all duration-300 group cursor-pointer">
                 <div className="relative h-64 sm:h-80 overflow-hidden border border-crisp bg-[#EDEAE1]">
@@ -106,6 +114,7 @@ export default function Home() {
                 <div className="pt-4 space-y-2">
                   <div className="flex items-center justify-between">
                     <span className="text-xs uppercase font-mono text-[#5C685B]">
+
                       Historic Downtown • Est. 1912
                     </span>
                     <span className="flex items-center gap-1 text-xs font-bold text-[#2D5A27]">
@@ -152,10 +161,13 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 2. REAL-TIME FEATURED MARKETS ROW */}
+
+      
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
           <div>
+
             <div className="inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-widest text-[#2D5A27] font-semibold mb-1">
               <Compass className="w-3.5 h-3.5" />
               <span>Curated Directory</span>
@@ -165,19 +177,21 @@ export default function Home() {
             </h2>
           </div>
 
+
           <Link
             to="/markets"
             className="text-xs uppercase font-bold tracking-wider text-[#2D5A27] hover:text-[#E2725B] flex items-center gap-1.5 group cursor-pointer transition-all"
           >
             <span>View All 6 Markets & Interactive Map</span>
             <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+
           </Link>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {featuredMarkets.map((market) => {
-            const status = getMarketCurrentStatus(market.operatingHours);
-            const saved = isMarketSaved(market.id);
+            let status= getMarketCurrentStatus(market.operatingHours);
+            let saved = isMarketSaved(market.id);
 
             return (
               <div
@@ -196,9 +210,11 @@ export default function Home() {
                         className={`inline-flex items-center gap-1 px-2.5 py-0.5 text-[10px] font-mono font-bold uppercase tracking-wider ${
                           status.isOpen
                             ? 'bg-[#2D5A27] text-white shadow-tactile-sm'
+
                             : 'bg-[#1C241B]/80 text-[#F3E8B1]'
                         }`}
                       >
+
                         <span className={`w-1.5 h-1.5 rounded-full ${status.isOpen ? 'bg-[#F3E8B1] animate-pulse' : 'bg-[#E2725B]'}`} />
                         {status.statusLabel}
                       </span>
@@ -213,6 +229,7 @@ export default function Home() {
                         saved
                           ? 'bg-[#2D5A27] text-white border-[#2D5A27]'
                           : 'bg-white/95 text-[#1C241B] border-crisp hover:bg-[#F3E8B1]'
+
                       }`}
                       title={saved ? 'Remove bookmark' : 'Bookmark market'}
                     >
@@ -222,6 +239,7 @@ export default function Home() {
 
                   <div className="p-5 space-y-3">
                     <div className="flex items-center justify-between text-xs text-[#5C685B] font-mono">
+
                       <span className="flex items-center gap-1">
                         <MapPin className="w-3.5 h-3.5 text-[#E2725B]" />
                         {market.region}
@@ -263,7 +281,9 @@ export default function Home() {
                   >
                     <span>View Stalls</span>
                     <ArrowRight className="w-3 h-3" />
+
                   </Link>
+
                 </div>
               </div>
             );
@@ -271,13 +291,16 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 3. SEASONAL HARVEST SPOTLIGHT BANNER */}
+
+      
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-[#2D5A27] text-white border-2 border-[#1E3D1A] shadow-tactile-lg p-6 sm:p-10 relative overflow-hidden">
-          {/* Subtle background watermark */}
+          
+
           <div className="absolute -bottom-8 -right-8 opacity-10 pointer-events-none text-[180px] font-editorial select-none">
             APPLE
           </div>
+
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
             <div className="lg:col-span-8 space-y-4">
@@ -295,6 +318,7 @@ export default function Home() {
               </p>
 
               <div className="pt-2 flex flex-wrap gap-2 text-xs font-mono">
+
                 <span className="bg-[#1E3D1A] px-3 py-1 border border-white/20 text-[#F3E8B1]">
                   Harvest: {spotlightProduce.harvestWindow}
                 </span>
@@ -319,6 +343,7 @@ export default function Home() {
               </div>
             </div>
 
+
             <div className="lg:col-span-4">
               <div className="bg-white text-[#1C241B] p-4 border border-crisp shadow-tactile space-y-3 group card-editorial">
                 <div className="h-44 overflow-hidden border border-crisp bg-[#EDEAE1]">
@@ -327,7 +352,7 @@ export default function Home() {
                     alt={spotlightProduce.name}
                     onError={(e) => {
                       e.currentTarget.onerror = null;
-                      e.currentTarget.src = DEFAULT_BOTANICAL_IMAGE;
+                      e.currentTarget.src  = DEFAULT_BOTANICAL_IMAGE;
                     }}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
@@ -348,7 +373,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 4. SEASONAL PRODUCE QUICK GRID */}
+      
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between mb-8">
           <div>
@@ -370,8 +395,9 @@ export default function Home() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {seasonalProduce.map((item) => {
-            const saved = isProduceSaved(item.id);
+            var saved = isProduceSaved(item.id);
             return (
+
               <div
                 key={item.id}
                 className="card-editorial p-4 space-y-3 flex flex-col justify-between group cursor-pointer"
@@ -382,10 +408,11 @@ export default function Home() {
                       src={item.image}
                       alt={item.name}
                       onError={(e) => {
-                        e.currentTarget.onerror = null;
-                        e.currentTarget.src = DEFAULT_BOTANICAL_IMAGE;
+                        e.currentTarget.onerror= null;
+                        e.currentTarget.src= DEFAULT_BOTANICAL_IMAGE;
                       }}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+
                     />
                     <span className="absolute top-2 left-2 bg-[#1C241B]/90 text-[#F3E8B1] px-2 py-0.5 text-[10px] font-mono font-bold uppercase">
                       {item.badge}
@@ -398,7 +425,9 @@ export default function Home() {
                       className={`absolute top-2 right-2 p-1.5 border text-xs btn-icon-tactile ${
                         saved
                           ? 'bg-[#2D5A27] text-white border-[#2D5A27]'
+
                           : 'bg-white/95 text-[#1C241B] border-crisp hover:bg-[#F3E8B1]'
+
                       }`}
                       title={saved ? 'Remove saved produce' : 'Save produce'}
                     >
@@ -425,6 +454,7 @@ export default function Home() {
                   </span>
                   <Link
                     to="/produce"
+
                     className="text-[#E2725B] font-bold hover:underline inline-flex items-center gap-1 cursor-pointer hover:translate-x-0.5 transition-transform"
                   >
                     Guide <ArrowRight className="w-3 h-3" />
@@ -436,7 +466,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 5. SLOW FOOD PHILOSOPHY PRINCIPLES */}
+      
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
         <div className="border border-crisp bg-[#EDEAE1] p-6 sm:p-10">
           <div className="max-w-2xl mb-8">

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { 
   Bookmark, Trash2, Download, Printer, ArrowRight, 
+
   MapPin, Clock, FileEdit, CheckCircle2, Sprout, Store, 
   Share2, Copy, Check
 } from 'lucide-react';
@@ -10,38 +11,40 @@ import marketsData from '../data/markets.json';
 import produceData from '../data/produce.json';
 import { getMarketCurrentStatus, formatSchedule } from '../utils/marketSchedule';
 
+
 export default function SavedItems() {
   const { 
     savedMarketIds, savedProduceIds, marketNotes, 
     toggleSaveMarket, toggleSaveProduce, updateMarketNote, deleteMarketNote 
-  } = useSaved();
+  }= useSaved();
 
-  const [activeTab, setActiveTab] = useState('all');
-  const [editingNoteMarketId, setEditingNoteMarketId] = useState(null);
-  const [noteEditDraft, setNoteEditDraft] = useState('');
-  const [copiedExport, setCopiedExport] = useState(false);
+  const [activeTab, setActiveTab]= useState('all');
 
-  const savedMarkets = marketsData.filter((m) => savedMarketIds.includes(m.id));
-  const savedProduce = produceData.filter((p) => savedProduceIds.includes(p.id));
+  const [editingNoteMarketId, setEditingNoteMarketId]= useState(null);
+  const [noteEditDraft, setNoteEditDraft]= useState('');
+  const [copiedExport, setCopiedExport]  = useState(false);
 
-  const handleStartEditNote = (marketId, currentNote = '') => {
+  var savedMarkets= marketsData.filter((m) => savedMarketIds.includes(m.id));
+  var savedProduce  = produceData.filter((p) => savedProduceIds.includes(p.id));
+
+  let handleStartEditNote = (marketId, currentNote = '') => {
     setEditingNoteMarketId(marketId);
     setNoteEditDraft(currentNote);
   };
 
-  const handleSaveNoteDraft = (marketId) => {
+  let handleSaveNoteDraft  = (marketId) => {
     updateMarketNote(marketId, noteEditDraft);
     setEditingNoteMarketId(null);
   };
 
-  // Generate formatted export content
-  const generateExportText = () => {
-    let output = `# FRESHFIND SLOW-FOOD MARKET ITINERARY\n`;
+  
+  var generateExportText= () => {
+    let output= `# FRESHFIND SLOW-FOOD MARKET ITINERARY\n`;
     output += `Generated: ${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}\n\n`;
 
     output += `## BOOKMARKED MARKETS (${savedMarkets.length})\n`;
     savedMarkets.forEach((m, idx) => {
-      const status = getMarketCurrentStatus(m.operatingHours);
+      var status  = getMarketCurrentStatus(m.operatingHours);
       output += `\n${idx + 1}. ${m.name} (${m.region})\n`;
       output += `   Address: ${m.address}\n`;
       output += `   Schedule: ${formatSchedule(m.operatingHours)}\n`;
@@ -64,35 +67,36 @@ export default function SavedItems() {
     return output;
   };
 
-  const handleDownloadExport = () => {
-    const text = generateExportText();
-    const blob = new Blob([text], { type: 'text/markdown;charset=utf-8;' });
-    const url = URL.createObjectURL(blob);
-    const link = document.createElement('a');
+  let handleDownloadExport = () => {
+    var text = generateExportText();
+    var blob = new Blob([text], { type: 'text/markdown;charset=utf-8;' });
+    var url = URL.createObjectURL(blob);
+    var link = document.createElement('a');
     link.href = url;
-    link.download = `freshfind-market-itinerary-${new Date().toISOString().slice(0, 10)}.md`;
+    link.download  = `freshfind-market-itinerary-${new Date().toISOString().slice(0, 10)}.md`;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
     URL.revokeObjectURL(url);
   };
 
-  const handleCopyExport = () => {
-    const text = generateExportText();
+  var handleCopyExport = () => {
+    var text = generateExportText();
     navigator.clipboard?.writeText(text);
     setCopiedExport(true);
     setTimeout(() => setCopiedExport(false), 2200);
   };
 
-  const handlePrint = () => {
+  var handlePrint= () => {
     window.print();
   };
 
-  const hasAnySaved = savedMarkets.length > 0 || savedProduce.length > 0;
+
+  var hasAnySaved = savedMarkets.length > 0 || savedProduce.length > 0;
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8 font-sans">
-      {/* Editorial Header */}
+      
       <div className="border-b border-crisp pb-6">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
           <div>
@@ -108,7 +112,7 @@ export default function SavedItems() {
             </p>
           </div>
 
-          {/* Export Actions with Tactile Buttons */}
+          
           {hasAnySaved && (
             <div className="flex flex-wrap items-center gap-2">
               <button
@@ -139,12 +143,12 @@ export default function SavedItems() {
         </div>
       </div>
 
-      {/* Tabs with Filter Pill Hover */}
+      
       <div className="flex items-center gap-2 border-b border-crisp pb-3">
         <button
           onClick={() => setActiveTab('all')}
           className={`filter-pill px-3.5 py-1.5 text-xs font-mono uppercase tracking-wider font-semibold border ${
-            activeTab === 'all'
+            activeTab == 'all'
               ? 'bg-[#2D5A27] text-white border-[#2D5A27] shadow-tactile-sm'
               : 'bg-white text-[#1C241B] border-crisp hover:bg-[#F7F5ED]'
           }`}
@@ -154,8 +158,9 @@ export default function SavedItems() {
 
         <button
           onClick={() => setActiveTab('markets')}
+
           className={`filter-pill px-3.5 py-1.5 text-xs font-mono uppercase tracking-wider font-semibold border ${
-            activeTab === 'markets'
+            activeTab == 'markets'
               ? 'bg-[#2D5A27] text-white border-[#2D5A27] shadow-tactile-sm'
               : 'bg-white text-[#1C241B] border-crisp hover:bg-[#F7F5ED]'
           }`}
@@ -166,16 +171,18 @@ export default function SavedItems() {
         <button
           onClick={() => setActiveTab('produce')}
           className={`filter-pill px-3.5 py-1.5 text-xs font-mono uppercase tracking-wider font-semibold border ${
-            activeTab === 'produce'
+            activeTab == 'produce'
               ? 'bg-[#2D5A27] text-white border-[#2D5A27] shadow-tactile-sm'
               : 'bg-white text-[#1C241B] border-crisp hover:bg-[#F7F5ED]'
+
           }`}
         >
           Produce Varieties ({savedProduce.length})
         </button>
       </div>
 
-      {/* EMPTY STATE */}
+      
+
       {!hasAnySaved ? (
         <div className="bg-white border border-crisp p-12 text-center space-y-4 shadow-tactile-sm max-w-2xl mx-auto my-12">
           <div className="w-16 h-16 bg-[#F7F5ED] border border-crisp text-[#2D5A27] flex items-center justify-center mx-auto text-2xl">
@@ -195,6 +202,7 @@ export default function SavedItems() {
               Explore Markets Directory
             </Link>
             <Link
+
               to="/produce"
               className="btn-secondary px-5 py-2.5 text-xs font-mono uppercase tracking-wider rounded-none"
             >
@@ -204,8 +212,8 @@ export default function SavedItems() {
         </div>
       ) : (
         <div className="space-y-12">
-          {/* SECTION 1: SAVED MARKETS */}
-          {(activeTab === 'all' || activeTab === 'markets') && (
+          
+          {(activeTab == 'all' || activeTab === 'markets') && (
             <section className="space-y-4">
               <div className="flex items-center justify-between">
                 <h2 className="font-editorial text-2xl font-bold text-[#1C241B] flex items-center gap-2">
@@ -221,9 +229,10 @@ export default function SavedItems() {
               ) : (
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {savedMarkets.map((market) => {
-                    const status = getMarketCurrentStatus(market.operatingHours);
-                    const currentNote = marketNotes[market.id];
-                    const isEditing = editingNoteMarketId === market.id;
+                    var status= getMarketCurrentStatus(market.operatingHours);
+
+                    var currentNote= marketNotes[market.id];
+                    var isEditing  = editingNoteMarketId === market.id;
 
                     return (
                       <div
@@ -231,7 +240,8 @@ export default function SavedItems() {
                         className="card-editorial flex flex-col justify-between"
                       >
                         <div className="p-5 space-y-4">
-                          {/* Header row */}
+
+                          
                           <div className="flex items-start justify-between gap-2">
                             <div>
                               <div className="flex items-center gap-2 mb-1">
@@ -239,6 +249,7 @@ export default function SavedItems() {
                                   className={`inline-block px-2 py-0.5 text-[10px] font-mono font-bold uppercase ${
                                     status.isOpen
                                       ? 'bg-[#2D5A27] text-white'
+
                                       : 'bg-[#1C241B]/80 text-[#F3E8B1]'
                                   }`}
                                 >
@@ -257,23 +268,27 @@ export default function SavedItems() {
                               onClick={() => toggleSaveMarket(market.id)}
                               className="text-[#5C685B] hover:text-[#E2725B] p-2 border border-crisp hover:bg-[#F7F5ED] btn-icon-tactile"
                               title="Remove from saved"
+
                             >
                               <Trash2 className="w-4 h-4" />
                             </button>
+
                           </div>
 
                           <p className="text-xs text-[#5C685B] leading-relaxed">
                             {market.address} • <strong className="text-[#2D5A27]">{formatSchedule(market.operatingHours)}</strong>
                           </p>
 
-                          {/* USER CUSTOM NOTES FIELD */}
+                          
                           <div className="p-3 bg-[#FAF8F2] border border-[#D6D3C7] space-y-2">
+
                             <div className="flex items-center justify-between text-[11px] font-mono uppercase text-[#2D5A27] font-bold">
                               <span className="flex items-center gap-1">
                                 <FileEdit className="w-3.5 h-3.5 text-[#E2725B]" /> Custom Session Note
                               </span>
                               {!isEditing && (
                                 <button
+
                                   onClick={() => handleStartEditNote(market.id, currentNote)}
                                   className="text-xs text-[#E2725B] hover:underline cursor-pointer"
                                 >
@@ -314,7 +329,8 @@ export default function SavedItems() {
                           </div>
                         </div>
 
-                        {/* Card bottom */}
+                        
+
                         <div className="p-4 border-t border-[#E7E4D8] bg-[#F7F5ED] flex items-center justify-between text-xs">
                           <span className="text-[#5C685B] font-mono">
                             {market.vendors.length} certified vendors
@@ -335,8 +351,8 @@ export default function SavedItems() {
             </section>
           )}
 
-          {/* SECTION 2: SAVED PRODUCE */}
-          {(activeTab === 'all' || activeTab === 'produce') && (
+          
+          {(activeTab == 'all' || activeTab === 'produce') && (
             <section className="space-y-4">
               <div className="flex items-center justify-between">
                 <h2 className="font-editorial text-2xl font-bold text-[#1C241B] flex items-center gap-2">
@@ -345,11 +361,12 @@ export default function SavedItems() {
                 </h2>
               </div>
 
-              {savedProduce.length === 0 ? (
+              {savedProduce.length == 0 ? (
                 <p className="text-xs text-[#5C685B] italic bg-white p-4 border border-crisp">
                   No produce varieties saved yet.
                 </p>
               ) : (
+
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
                   {savedProduce.map((produce) => (
                     <div
@@ -367,6 +384,7 @@ export default function SavedItems() {
                             </h3>
                           </div>
                           <button
+
                             onClick={() => toggleSaveProduce(produce.id)}
                             className="text-[#5C685B] hover:text-[#E2725B] p-1.5 border border-crisp hover:bg-[#F7F5ED] btn-icon-tactile"
                             title="Remove produce"
@@ -379,6 +397,7 @@ export default function SavedItems() {
                           {produce.flavorProfile}
                         </p>
                       </div>
+
 
                       <div className="pt-2 border-t border-[#E7E4D8] flex items-center justify-between text-xs">
                         <span className="text-[10px] font-mono text-[#5C685B]">
@@ -400,5 +419,6 @@ export default function SavedItems() {
         </div>
       )}
     </div>
+
   );
 }

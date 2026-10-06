@@ -15,92 +15,333 @@
     {
       "id": "open-today",
       "category": "Hours & Schedule",
-      "keywords": ["open", "today", "now", "hours", "schedule", "when", "days", "times", "time", "closing"],
+      "keywords": [
+        "open",
+        "today",
+        "now",
+        "hours",
+        "schedule",
+        "when",
+        "days",
+        "times",
+        "time",
+        "closing"
+      ],
       "question": "Which markets are open right now or on specific days?",
       "answer": "Markets operate on distinct seasonal days across the region. You can always check our real-time header clock for live 'Open Right Now' badges! Major market schedules include:\n• **Heritage Square Market**: Wed (10am–3pm), Sat (8am–2pm), Sun (9am–1:30pm)\n• **Coastal Harbor Wharf**: Tue & Thu (11am–4pm), Sat (7:30am–1pm)\n• **Riverdale Greenbelt**: Thu (2pm–7pm), Sun (8:30am–2pm)\n• **North Valley Harvest Sheds**: Tue & Fri (9am–2pm), Sat (8am–2:30pm)\n• **Highland Hills Botanical**: Wed (12pm–6pm), Sat (9am–3pm)\n• **Old Town Plaza Exchange**: Thu Twilight (4pm–8:30pm), Sun (9am–2pm)",
-      "suggestedChips": ["View all markets", "What's open Saturday?", "Tell me about SNAP / EBT"],
+      "suggestedChips": [
+        "View all markets",
+        "What's open Saturday?",
+        "Tell me about SNAP / EBT"
+      ],
       "actionRoute": "/markets",
-      "marketRecommendations": ["heritage-square-farmers-market", "riverdale-greenbelt-commons"]
+      "marketRecommendations": [
+        "heritage-square-farmers-market",
+        "riverdale-greenbelt-commons"
+      ],
+      "recommendedDestinations": [
+        {
+          "id": "heritage-square-farmers-market",
+          "name": "Heritage Square Market",
+          "location": "Historic Downtown"
+        },
+        {
+          "id": "riverdale-greenbelt-commons",
+          "name": "Riverdale Greenbelt Commons",
+          "location": "Riverdale Greenbelt"
+        }
+      ]
     },
     {
       "id": "payment-snap-ebt",
       "category": "Payment & Access",
-      "keywords": ["snap", "ebt", "card", "cash", "payment", "credit", "market match", "double bucks", "welfare", "debit", "token"],
+      "keywords": [
+        "snap",
+        "ebt",
+        "card",
+        "cash",
+        "payment",
+        "credit",
+        "market match",
+        "double bucks",
+        "welfare",
+        "debit",
+        "token"
+      ],
       "question": "Can I use EBT / SNAP or debit cards at the markets?",
       "answer": "Yes! All FreshFind affiliated markets accept EBT / SNAP cards at the central Information Booth kiosk. Many markets, including **Riverdale Greenbelt Commons**, participate in the *Double Up Food Bucks* program—giving you up to $20 in free matching tokens each visit for fresh fruits and vegetables. Most individual farm stalls also accept debit/credit cards and contactless payments, though crisp cash is always beloved by growers!",
-      "suggestedChips": ["Riverdale Greenbelt Commons", "Which produce is in season?", "Parking options"],
+      "suggestedChips": [
+        "Riverdale Greenbelt Commons",
+        "Which produce is in season?",
+        "Parking options"
+      ],
       "actionRoute": "/markets",
-      "marketRecommendations": ["riverdale-greenbelt-commons", "heritage-square-farmers-market"]
+      "marketRecommendations": [
+        "riverdale-greenbelt-commons",
+        "heritage-square-farmers-market"
+      ],
+      "recommendedDestinations": [
+        {
+          "id": "riverdale-greenbelt-commons",
+          "name": "Riverdale Greenbelt Commons",
+          "location": "Riverdale Greenbelt"
+        },
+        {
+          "id": "heritage-square-farmers-market",
+          "name": "Heritage Square Market",
+          "location": "Historic Downtown"
+        }
+      ]
     },
     {
       "id": "dogs-pets",
       "category": "Market Policies",
-      "keywords": ["dog", "dogs", "pet", "pets", "leash", "puppy", "animals"],
+      "keywords": [
+        "dog",
+        "dogs",
+        "pet",
+        "pets",
+        "leash",
+        "puppy",
+        "animals"
+      ],
       "question": "Are dogs and pets allowed at the farmers' markets?",
       "answer": "Pet policies vary by location due to regional health codes:\n• **Heritage Square Market**: Well-behaved dogs on 4-foot leashes are welcome on the outdoor brick terrace.\n• **Riverdale Greenbelt Commons**: Dedicated open-air agility lawn adjacent to the stalls; pets welcome on leash.\n• **Highland Hills Botanical**: Full pet water hydration stations provided.\n• *Please note*: In covered interior stalls or food preparation tents, pets must remain outside or in approved carriers.",
-      "suggestedChips": ["Heritage Square Market", "Riverdale Greenbelt", "Find open markets"],
+      "suggestedChips": [
+        "Heritage Square Market",
+        "Riverdale Greenbelt",
+        "Find open markets"
+      ],
       "actionRoute": "/markets",
-      "marketRecommendations": ["heritage-square-farmers-market", "riverdale-greenbelt-commons", "highland-hills-botanical-market"]
+      "marketRecommendations": [
+        "heritage-square-farmers-market",
+        "riverdale-greenbelt-commons",
+        "highland-hills-botanical-market"
+      ],
+      "recommendedDestinations": [
+        {
+          "id": "heritage-square-farmers-market",
+          "name": "Heritage Square Market",
+          "location": "Historic Downtown"
+        },
+        {
+          "id": "riverdale-greenbelt-commons",
+          "name": "Riverdale Greenbelt Commons",
+          "location": "Riverdale Greenbelt"
+        },
+        {
+          "id": "highland-hills-botanical-market",
+          "name": "Highland Hills Botanical Market",
+          "location": "Highland Hills"
+        }
+      ]
     },
     {
       "id": "seasonality-harvest",
       "category": "Produce & Harvest",
-      "keywords": ["season", "seasonal", "produce", "harvest", "apples", "tomatoes", "mushrooms", "fresh", "autumn", "summer", "spring", "winter"],
+      "keywords": [
+        "season",
+        "seasonal",
+        "produce",
+        "harvest",
+        "apples",
+        "tomatoes",
+        "mushrooms",
+        "fresh",
+        "autumn",
+        "summer",
+        "spring",
+        "winter"
+      ],
       "question": "What produce is currently in peak harvest?",
       "answer": "We celebrate nature's calendar! In the current harvest cycle:\n• **Autumn / Late Season**: Crisp Honeycrisp heirloom apples, Delicata squash, Golden Chanterelles, and aged fermented black garlic.\n• **Year-Round**: Rainbow chard, pasture-raised eggs, artisan raw goat chèvre, and fresh-harvested pea microgreens.\n• Explore our interactive **Seasonal Matrix** to filter harvest calendars by season and discover which markets stock them!",
-      "suggestedChips": ["Browse Seasonal Produce Guide", "Where can I find mushrooms?", "Where can I buy raw milk?"],
+      "suggestedChips": [
+        "Browse Seasonal Produce Guide",
+        "Where can I find mushrooms?",
+        "Where can I buy raw milk?"
+      ],
       "actionRoute": "/produce",
-      "marketRecommendations": ["heritage-square-farmers-market", "north-valley-harvest-sheds"]
+      "marketRecommendations": [
+        "heritage-square-farmers-market",
+        "north-valley-harvest-sheds"
+      ],
+      "recommendedDestinations": [
+        {
+          "id": "heritage-square-farmers-market",
+          "name": "Heritage Square Market",
+          "location": "Historic Downtown"
+        },
+        {
+          "id": "north-valley-harvest-sheds",
+          "name": "North Valley Harvest Sheds",
+          "location": "North Valley"
+        }
+      ]
     },
     {
       "id": "wild-mushrooms",
       "category": "Specialty Foods",
-      "keywords": ["mushroom", "mushrooms", "chanterelle", "morel", "forage", "fungi", "shiitake", "lions mane"],
+      "keywords": [
+        "mushroom",
+        "mushrooms",
+        "chanterelle",
+        "morel",
+        "forage",
+        "fungi",
+        "shiitake",
+        "lions mane"
+      ],
       "question": "Where can I purchase wild foraged mushrooms?",
       "answer": "Wild mushrooms are brought in by licensed forager collectives:\n• **Timberline Foraging Co.** at **Heritage Square Market** (Saturdays 8am–2pm) has wild Golden Chanterelles and Black Morels.\n• **Spore & Root Collective** at **Highland Hills Botanical Market** (Saturdays 9am–3pm) offers Lion's Mane and inoculated oak-log Shiitakes.",
-      "suggestedChips": ["Heritage Square Market", "Highland Hills Market", "Mushroom storage tips"],
+      "suggestedChips": [
+        "Heritage Square Market",
+        "Highland Hills Market",
+        "Mushroom storage tips"
+      ],
       "actionRoute": "/markets/heritage-square-farmers-market",
-      "marketRecommendations": ["heritage-square-farmers-market", "highland-hills-botanical-market"]
+      "marketRecommendations": [
+        "heritage-square-farmers-market",
+        "highland-hills-botanical-market"
+      ],
+      "recommendedDestinations": [
+        {
+          "id": "heritage-square-farmers-market",
+          "name": "Heritage Square Market",
+          "location": "Historic Downtown"
+        },
+        {
+          "id": "highland-hills-botanical-market",
+          "name": "Highland Hills Botanical Market",
+          "location": "Highland Hills"
+        }
+      ]
     },
     {
       "id": "raw-dairy-eggs",
       "category": "Dairy & Pantry",
-      "keywords": ["milk", "dairy", "cheese", "chevre", "goat", "butter", "eggs", "jersey milk", "raw milk"],
+      "keywords": [
+        "milk",
+        "dairy",
+        "cheese",
+        "chevre",
+        "goat",
+        "butter",
+        "eggs",
+        "jersey milk",
+        "raw milk"
+      ],
       "question": "Where can I find farm-fresh raw milk, artisan cheese, and eggs?",
       "answer": "Look no further than:\n• **Meadowbrook Pastures** at **Riverdale Greenbelt Commons** for grass-fed raw Jersey A2 milk, cultured butter, and deep-amber free-range yolks.\n• **Highland Valley Creamery** at **Heritage Square Market** for raw goat chèvre, aged tomme, and ash-ripened pyramids.",
-      "suggestedChips": ["Riverdale Commons", "Heritage Square", "View Produce Matrix"],
+      "suggestedChips": [
+        "Riverdale Commons",
+        "Heritage Square",
+        "View Produce Matrix"
+      ],
       "actionRoute": "/markets/riverdale-greenbelt-commons",
-      "marketRecommendations": ["riverdale-greenbelt-commons", "heritage-square-farmers-market"]
+      "marketRecommendations": [
+        "riverdale-greenbelt-commons",
+        "heritage-square-farmers-market"
+      ],
+      "recommendedDestinations": [
+        {
+          "id": "riverdale-greenbelt-commons",
+          "name": "Riverdale Greenbelt Commons",
+          "location": "Riverdale Greenbelt"
+        },
+        {
+          "id": "heritage-square-farmers-market",
+          "name": "Heritage Square Market",
+          "location": "Historic Downtown"
+        }
+      ]
     },
     {
       "id": "parking-transit",
       "category": "Getting There",
-      "keywords": ["parking", "transit", "bus", "metro", "tram", "bike", "drive", "valet", "train", "car"],
+      "keywords": [
+        "parking",
+        "transit",
+        "bus",
+        "metro",
+        "tram",
+        "bike",
+        "drive",
+        "valet",
+        "train",
+        "car"
+      ],
       "question": "How do I get to the markets and where can I park?",
       "answer": "All markets offer multi-modal transit options:\n• **Heritage Square**: Central Tram to Civic Square station; free bicycle valet on the north arcade; 2-hour validated garage.\n• **Coastal Harbor Wharf**: Ferry terminal Gate 3 is 4 mins walk; Bus #18 right to the pier.\n• **Riverdale Greenbelt**: Direct access via Riverdale Greenway Bike Trail with stroller & bike parking, plus EV charging lot.\n• **Old Town Plaza**: Metro Plaza Station exits right into the cobblestones; 90 min free municipal garage.",
-      "suggestedChips": ["View Market Directory", "Heritage Square details", "Coastal Harbor Wharf"],
+      "suggestedChips": [
+        "View Market Directory",
+        "Heritage Square details",
+        "Coastal Harbor Wharf"
+      ],
       "actionRoute": "/markets",
-      "marketRecommendations": ["heritage-square-farmers-market", "coastal-harbor-wharf-market"]
+      "marketRecommendations": [
+        "heritage-square-farmers-market",
+        "coastal-harbor-wharf-market"
+      ],
+      "recommendedDestinations": [
+        {
+          "id": "heritage-square-farmers-market",
+          "name": "Heritage Square Market",
+          "location": "Historic Downtown"
+        },
+        {
+          "id": "coastal-harbor-wharf-market",
+          "name": "Coastal Harbor Wharf Market",
+          "location": "Coastal Harbor"
+        }
+      ]
     },
     {
       "id": "vendor-application",
       "category": "Community",
-      "keywords": ["vendor", "stall", "apply", "sell", "farmer", "grower", "booth", "application"],
+      "keywords": [
+        "vendor",
+        "stall",
+        "apply",
+        "sell",
+        "farmer",
+        "grower",
+        "booth",
+        "application"
+      ],
       "question": "How do I apply to become a vendor or farm stallholder?",
       "answer": "We welcome authentic regional growers, artisan bakers, and small-batch food crafters! All vendors must grow or craft at least 70% of their items within a 150-mile radius. Inquiries and stall applications open twice yearly (January for Spring/Summer season; July for Autumn/Winter). Stop by the Manager's Kiosk at any market or download our vendor charter.",
-      "suggestedChips": ["View Market Schedules", "Browse Produce Types"],
+      "suggestedChips": [
+        "View Market Schedules",
+        "Browse Produce Types"
+      ],
       "actionRoute": "/markets",
-      "marketRecommendations": []
+      "marketRecommendations": [],
+      "recommendedDestinations": []
     },
     {
       "id": "bookmarking-notes",
       "category": "App Features",
-      "keywords": ["save", "saved", "bookmark", "note", "notes", "export", "list", "favorites", "shopping list"],
+      "keywords": [
+        "save",
+        "saved",
+        "bookmark",
+        "note",
+        "notes",
+        "export",
+        "list",
+        "favorites",
+        "shopping list"
+      ],
       "question": "How do saved bookmarks and shopping notes work?",
       "answer": "You can bookmark your favorite markets and seasonal produce items anytime using the bookmark ribbon icon! All your saved markets and personalized market shopping notes are stored privately in your browser's local memory. Head over to the **Saved Items** view (`/saved`) to manage, edit notes, and export or print your weekend market plan.",
-      "suggestedChips": ["Go to Saved Items", "Browse Markets", "Browse Produce"],
+      "suggestedChips": [
+        "Go to Saved Items",
+        "Browse Markets",
+        "Browse Produce"
+      ],
       "actionRoute": "/saved",
-      "marketRecommendations": []
+      "marketRecommendations": [],
+      "recommendedDestinations": []
     }
   ],
   "fallback": {

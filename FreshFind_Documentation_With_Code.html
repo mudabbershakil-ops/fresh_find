@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FreshFind Documentation</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- Highlight.js VS Code Dark Theme -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/vs2015.min.css">
+    
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #E6EAF2;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .page {
+            background-color: white;
+            width: 100%;
+            max-width: 950px;
+            margin: 40px auto;
+            padding: 60px;
+            box-sizing: border-box;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            color: #2b5c8f;
+            margin-top: 1.5em;
+            margin-bottom: 0.5em;
+        }
+        h1 { 
+            font-size: 24pt; 
+            border-bottom: 2px solid #4CAF50; 
+            padding-bottom: 10px; 
+            text-align: center;
+            color: #2E7D32; 
+        }
+        h2 { font-size: 18pt; color: #4376b3; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+        h3 { font-size: 14pt; color: #2E7D32; }
+        p, li { font-size: 11pt; text-align: justify; }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        th, td { padding: 12px 15px; border-bottom: 1px solid #ddd; text-align: left; }
+        th { background-color: #4376b3; color: white; font-family: 'Montserrat', sans-serif; }
+        tr:nth-child(even) { background-color: #f8f9fa; }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin: 20px auto;
+            display: block;
+        }
+        
+        blockquote {
+            background-color: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+            font-style: italic;
+        }
+        
+        /* MAC WINDOW STYLED CODE SNIPPETS */
+        pre {
+            background-color: #1E1E1E !important; /* VS Code Dark */
+            padding: 40px 20px 20px 20px !important;
+            border-radius: 10px !important;
+            overflow-x: auto;
+            border: 1px solid #333;
+            position: relative;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+            margin: 30px 0;
+        }
+        
+        /* Mac OS traffic light buttons */
+        pre::before {
+            content: '';
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ff5f56;
+            box-shadow: 20px 0 0 #ffbd2e, 40px 0 0 #27c93f;
+        }
+
+        code {
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 10.5pt;
+        }
+        
+        /* Fix for inline code */
+        p > code, li > code {
+            background-color: #f4f4f4;
+            padding: 2px 4px;
+            border-radius: 4px;
+            color: #d63384;
+        }
+
+        div[align="center"] { text-align: center; }
+        
+        @media print {
+            body { background-color: white; }
+            .page { background-color: white; margin: 0; padding: 0; width: 100%; box-shadow: none; }
+            pre { box-shadow: none; border: 1px solid #ccc; }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <div align="center"><p><img src="cover.jpg" alt="Cover Illustration"></p>
+<h1 style="color: #2E7D32; font-size: 3.5em; margin-bottom: 0;">FreshFind</h1>
+<h2 style="color: #4CAF50; margin-top: 0;"><i>Fresh All Along</i></h2><br><div style="background-color: #E8F5E9; padding: 20px; border: 2px solid #2E7D32; border-radius: 10px; width: 80%; margin: 0 auto;">
+  <h2 style="color: #2E7D32; margin: 0;">Software Requirements Specification</h2>
+  <h3 style="color: #1B5E20; margin: 0;">Version 1.0</h3>
+</div><p><br><br></p>
+<p><strong>Project Name:</strong> FreshFind<br>
+<strong>Theme:</strong> eGreen Basket<br>
+<strong>Category:</strong> Web Innovation Unleashed<br>
+<strong>Institution:</strong> Aptech Computer Education</p>
+<p><br><br></p>
+<h3>👥 Team Members</h3>
+<table>
+<thead>
+<tr>
+<th align="center">Student ID</th>
+<th align="left">Name</th>
+<th align="left">Role</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>1696207</strong></td>
+<td align="left">Burhan Hussain</td>
+<td align="left">Project Lead &amp; Frontend Developer</td>
+</tr>
+<tr>
+<td align="center"><strong>1696208</strong></td>
+<td align="left">Yousuf</td>
+<td align="left">UI/UX &amp; Theme Designer</td>
+</tr>
+<tr>
+<td align="center"><strong>1696209</strong></td>
+<td align="left">Mudabber</td>
+<td align="left">JavaScript &amp; Dynamic Logic Specialist</td>
+</tr>
+<tr>
+<td align="center"><strong>1696210</strong></td>
+<td align="left">Saad</td>
+<td align="left">QA &amp; Testing Specialist</td>
+</tr>
+<tr>
+<td align="center"><strong>1696211</strong></td>
+<td align="left">Saboor</td>
+<td align="left">Technical Documentation Specialist</td>
+</tr>
+</tbody></table>
+</div><hr>
+<br><h1>Table of Contents</h1>
+<ol>
+<li><a href="#11-background-and-necessity-for-the-website">1.1 Background and Necessity for the Website</a></li>
+<li><a href="#12-proposed-solution">1.2 Proposed Solution</a></li>
+<li><a href="#13-purpose-of-the-document">1.3 Purpose of the Document</a></li>
+<li><a href="#14-scope-of-project">1.4 Scope of Project</a></li>
+<li><a href="#15-constraints">1.5 Constraints</a></li>
+<li><a href="#16-functional-requirements">1.6 Functional Requirements</a></li>
+<li><a href="#17-non-functional-requirements">1.7 Non-Functional Requirements</a></li>
+<li><a href="#18-interface-requirements">1.8 Interface Requirements</a></li>
+<li><a href="#19-project-deliverables">1.9 Project Deliverables</a></li>
+<li><a href="#section-11-key-code-implementation-snippets">11.0 Key Code Implementation</a></li>
+</ol>
+<hr>
+<br><h2>1.1 Background and Necessity for the Website</h2>
+<p>Farmers markets play an important role in connecting communities with the growers who put fresh, seasonal food on their tables.</p>
+<p>However, information on market locations and timings is scattered across flyers, community boards, social media, and word of mouth, with no single reliable source for residents in a community or neighbourhood. This makes it difficult for residents to plan visits around the market&#39;s actual operating day and hours, or to know in advance what product is likely to be available that week.</p>
+<p>There is a clear requirement for a simple, accessible, browser-based tool that consolidates this information into one place, helping residents discover nearby markets and make the most of seasonal, local produce.</p>
+<hr><h2>1.2 Proposed Solution</h2>
+<p>The proposed solution is to develop a Website called <strong>&#39;FreshFind&#39;</strong> that helps residents discover nearby farmers markets. The Website will be designed as a Client-Side Single Page Application (SPA).</p>
+<p>The Website should display market locations, operating days and hours, and the types of produce typically available at each market. The platform includes an <strong>AI chatbot</strong> to answer frequently asked queries from visitors.</p>
+<p>The Website is built purely with HTML5, CSS3, JavaScript (ReactJS), and related frontend technologies with no backend server. All market and produce data is presented using pre-populated JSON/text files, and the chatbot runs on pre-scripted logic rather than a live external AI service. </p>
+<p>This basic architecture keeps the platform lightweight, fast, and easy to deploy while providing a responsive and accessible experience across desktops, tablets, and mobile devices.</p>
+<hr><h2>1.3 Purpose of the Document</h2>
+<p>The purpose of this document is to define the functional, non-functional, and technical requirements for the <strong>FreshFind</strong> Website, including its goals, scope, features, constraints, and user expectations.</p>
+<p>This document describes the objectives and features of the Website, its user interfaces, the functions it is expected to perform, and the constraints under which it must operate. It is intended to serve as a reference for both stakeholders and developers involved in designing, building, and maintaining the Website.</p>
+<h3>1.3.1 Who Can Use this Document?</h3>
+<p>Stakeholders (Technical and Non-Technical people associated with the project) and Developers of this portal.</p>
+<hr><h2>1.4 Scope of Project</h2>
+<p>The <strong>&#39;FreshFind&#39;</strong> project is designed to be a responsive browser-based Website that helps residents discover farmers&#39; markets near them, and plan visits around what is likely to be in season.</p>
+<p>It includes a searchable and filterable market directory, individual market detail pages showing location, operating days/hours, and typical products, a general produce guide, and seasonal recommendations section. It also includes an AI chatbot to help visitors find answers to common queries.</p>
+<p>The platform is fully responsive, ensuring compatibility across desktops, tablets, and mobile devices. It is suitable for residents planning market visits, community organizations promoting local farmers, and vendors looking to expand their digital footprint.</p>
+<h3>Sample Site Map</h3>
+<p><strong>Landing Page – This Page includes the following sections:</strong></p>
+<ul>
+<li><strong>Core sections:</strong> Find a Market, Market Directory, Produce Guide, Chatbot, Contact Us, About Us<ul>
+<li>Upon selecting a market from the directory, the respective market detail page should be displayed, showing its location, schedule, and typical produce.</li>
+</ul>
+</li>
+<li>Additionally, features such as Search/Find a Market, Bookmarks, and the chatbot are cross-page which means they remain accessible from each page.</li>
+</ul>
+<hr><h2>1.5 Constraints</h2>
+<table>
+<thead>
+<tr>
+<th align="left">Area</th>
+<th align="left">Constraint Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>Data Storage</strong></td>
+<td align="left">The Website does not have any facility to store information on a backend server. Information is fetched from JSON files and users can view the same being displayed; however, information cannot be written to the files from within the portal.</td>
+</tr>
+<tr>
+<td align="left"><strong>Chatbot AI</strong></td>
+<td align="left">The chatbot does not connect to a live external AI service or backend; it runs on a static, pre-scripted dataset and rule-based logic loaded from <code>faq.json</code>.</td>
+</tr>
+<tr>
+<td align="left"><strong>Session State</strong></td>
+<td align="left">All user interactions (Bookmarks, Saved notes, User Session) are strictly stored in browser <code>localStorage</code>.</td>
+</tr>
+</tbody></table>
+<hr><h2>1.6 Functional Requirements</h2>
+<p>The portal is designed as a responsive Website with a set of pages and menus that represent the choice of activities to be performed. Pages, menus, and other visual elements are designed in a visually appealing manner with attractive fonts, colors, and animations.</p>
+<blockquote>
+<p><strong>Note:</strong> For several of these options, information is retrieved from a pre-populated JSON file and displayed using ReactJS components, hooks, and context features.</p>
+</blockquote>
+<h3>Menu and Web Page Functionality</h3>
+<h4>🏠 Home Page</h4>
+<ul>
+<li><strong>Display Elements:</strong> Platform logo, heading, and introductory text.</li>
+<li><strong>Quick Find:</strong> A prominent &#39;Find a Market Near You&#39; search/filter prompt (by area, day of week, or produce type).</li>
+<li><strong>Highlights:</strong> A featured/rotating showcase of nearby or currently open markets and this week&#39;s seasonal picks.</li>
+<li><strong>Chatbot Launcher:</strong> A floating chatbot icon accessible from the home page and all subsequent pages.</li>
+</ul>
+<h4>📍 Market Directory</h4>
+<ul>
+<li><strong>Functionality:</strong> Displays a catalog of farmers markets loaded from JSON files.</li>
+<li><strong>Each market card includes:</strong> Market name, area/location, operating days and hours, a short description, and a thumbnail image.</li>
+<li><strong>Filtering:</strong> Filterable by area/neighborhood, day of the week, and produce type available.</li>
+<li><strong>Sorting:</strong> Sortable alphabetically, by proximity, or by next open day.</li>
+</ul>
+<h4>🏪 Market Detail Page</h4>
+<ul>
+<li><strong>Location Details:</strong> Address, area/neighborhood, and an embedded interactive Leaflet map showing the market location.</li>
+<li><strong>Schedule:</strong> Operating days and hours, clearly displayed as a weekly schedule table.</li>
+<li><strong>Product Available:</strong> A list or grid of items typically available at this market, with icons/images.</li>
+</ul>
+<h4>🥬 Produce Guide</h4>
+<ul>
+<li><strong>Functionality:</strong> A browsable catalogue of product types, each with a description, typical season, and the markets where it can be found.</li>
+<li><strong>Filtering:</strong> Filterable by product category (fruits, vegetables, herbs, dairy).</li>
+<li><strong>Data Source:</strong> Loaded from a pre-populated JSON file linking produce items to markets and seasons.</li>
+</ul>
+<h4>🤖 AI Chatbot</h4>
+<ul>
+<li><strong>Functionality:</strong> A floating chatbot widget available across the site that helps visitors find answers to common queries.</li>
+<li><strong>Data Source:</strong> Chatbot responses are generated from a static, pre-scripted dataset of questions and answers; no live external AI service or backend is used.</li>
+<li><strong>Interaction:</strong> Visitors can type a question or select from suggested quick reply prompts; the chatbot responds and links to the relevant market or produce page.</li>
+</ul>
+<h4>🔖 Content Bookmarking System</h4>
+<ul>
+<li><strong>Favorite markets and product guide entries</strong></li>
+<li><strong>Personal notes</strong> attached to bookmarked content (session-persistent via localStorage)</li>
+<li><strong>Export bookmarks</strong> as a formatted list</li>
+<li><strong>Share recommendations</strong> via social links</li>
+</ul>
+<h4>🌐 Additional User Interface Features</h4>
+<ul>
+<li><strong>Contact Us:</strong> Static contact information, with a map showing live location.</li>
+<li><strong>About Us:</strong> Static information about the team and the platform mission.</li>
+<li><strong>Visitor Counter:</strong> Simulated real-time visitor counter using JavaScript.</li>
+<li><strong>Real-Time Clock:</strong> A real-time engine used to highlight markets open &#39;right now&#39;.</li>
+<li><strong>Hover Effects:</strong> Hover effects and animated transitions for an interactive feel.</li>
+<li><strong>Breadcrumb Navigation:</strong> Breadcrumb navigation for better UX across directory and detail pages.</li>
+<li><strong>Dummy Login/Signup:</strong> Non-functional login/signup buttons included for design continuity.</li>
+</ul>
+<hr><h2>1.7 Non-Functional Requirements</h2>
+<p>There are several non-functional requirements that are fulfilled by the Website. The Website is:</p>
+<ul>
+<li><strong>Safe to use:</strong> The Website does not result in any malicious downloads or unnecessary file downloads.</li>
+<li><strong>Accessible:</strong> The Website is usable by people with visual or motor impairments, through sufficient contrast, legible text, and semantic HTML structure.</li>
+<li><strong>User-friendly:</strong> The Website is quick and intuitive to use, with a clear layout and logical navigation.</li>
+<li><strong>Operability:</strong> The Website operates in a reliably efficient manner.</li>
+<li><strong>Performance:</strong> The Website demonstrates a high value of performance through speed and throughput — it is fast to load, and page redirection is instantaneous (SPA).</li>
+<li><strong>Capacity:</strong> The static architecture allows the Website to support a large number of concurrent users.</li>
+<li><strong>Availability:</strong> The Website is available 24/7 with minimum downtime (deployable on high-availability static hosts like GitHub Pages or Netlify).</li>
+<li><strong>Compatibility:</strong> The Website is compatible with all latest browsers (Chrome, Firefox, Safari, Edge).</li>
+</ul>
+<hr><h2>1.8 Interface Requirements</h2>
+<h3>Technology Stack &amp; Hardware</h3>
+<p><strong>Hardware:</strong></p>
+<ul>
+<li>Intel Core i5/i7 Processor or higher</li>
+<li>8 GB RAM or higher</li>
+<li>Color SVGA </li>
+<li>500 GB Hard Disk space</li>
+<li>Mouse &amp; Keyboard</li>
+</ul>
+<p><strong>Software:</strong></p>
+<ul>
+<li><strong>IDE:</strong> Visual Studio Code</li>
+<li><strong>Frontend:</strong> HTML5, CSS3, JavaScript (ES6+), ReactJS (v19), TailwindCSS (v4), and Lucide React Icons.</li>
+<li><strong>AI and Development Tools:</strong> Figma AI, Canva Magic, Gemini, and ChatGPT for UI design inspiration, code assistance, image generation, and FAQ/content generation.</li>
+<li><strong>Data Store:</strong> JSON files (<code>markets.json</code>, <code>produce.json</code>, <code>faq.json</code>) and <code>localStorage</code> for session data.</li>
+</ul>
+<blockquote>
+<p><strong>📌 Important Note Regarding AI Usage:</strong> 
+AI-generated suggestions were used for guidance, learning, and improving productivity. However, the final solution demonstrates the team&#39;s own effort, logic, and implementation. All AI tools used (Gemini, ChatGPT, Canva) are acknowledged. The chatbot itself relies entirely on a custom JavaScript rule-based engine, not a live AI API, strictly adhering to competition rules.</p>
+</blockquote>
+<hr><h2>1.9 Project Deliverables</h2>
+<p>The FreshFind team has designed, built, and submitted the project along with this complete project report that includes:</p>
+<ul>
+<li><strong>Problem Definition</strong> (Section 1.1)</li>
+<li><strong>Design Specifications</strong> (Section 1.6 &amp; 1.8)</li>
+<li><strong>Test Data Used</strong> (JSON Datasets provided in <code>src/data/</code>)</li>
+<li><strong>Project Installation Instructions</strong> (See below)</li>
+<li><strong>Source Code Zip File</strong> (Containing the entire React/Vite project)</li>
+<li><strong>Demonstration Video</strong> (.mp4 file demonstrating all functionalities)</li>
+</ul>
+<h3>Project Installation Instructions (Mandatory)</h3>
+<ol>
+<li><strong>Extract the Source Code:</strong> Unzip the provided project folder.</li>
+<li><strong>Install Dependencies:</strong> Open a terminal in the root folder and run:<pre><code class="language-bash">npm install
+</code></pre>
+</li>
+<li><strong>Run the Application Locally:</strong> Start the development server by running:<pre><code class="language-bash">npm run dev
+</code></pre>
+</li>
+<li><strong>Access the Website:</strong> Open your web browser and navigate to <code>http://localhost:5173</code>.</li>
+<li><strong>Build for Production:</strong> To generate a static production build, run:<pre><code class="language-bash">npm run build
+</code></pre>
+The output will be generated in the <code>dist/</code> directory, ready to be hosted on any static web server.</li>
+</ol>
+<hr><p><br><br></p>
+<div align="center">
+  <b>~~~ End of Document ~~~</b><br><br>
+  © Aptech Limited | TechWiz 7
+</div><hr>
+<br><h2>SECTION 11: KEY CODE IMPLEMENTATION (SNIPPETS)</h2>
+<p>The following snippets highlight the core logic of FreshFind. They demonstrate the SPA routing, the dynamic state management, and the simulated real-time interactivity.</p>
+<h3>11.1 Main Application Architecture (<code>App.jsx</code>)</h3>
+<p>This snippet demonstrates the client-side routing and global context providers.</p>
+<pre><code class="language-jsx">import React from &#39;react&#39;;
+import { BrowserRouter, Routes, Route, Navigate } from &#39;react-router-dom&#39;;
+import { SavedProvider } from &#39;./context/SavedContext&#39;;
+import { AuthProvider } from &#39;./context/AuthContext&#39;;
+import Navbar from &#39;./components/Navbar&#39;;
+import Footer from &#39;./components/Footer&#39;;
+import FieldGuideChatbot from &#39;./components/FieldGuideChatbot&#39;;
+import Home from &#39;./pages/Home&#39;;
+import MarketsDirectory from &#39;./pages/MarketsDirectory&#39;;
+
+var App = function() {
+  return (
+    &lt;SavedProvider&gt;
+      &lt;AuthProvider&gt;
+        &lt;BrowserRouter&gt;
+          &lt;div className=&quot;min-h-screen flex flex-col bg-[#F7F5ED]&quot;&gt;
+            &lt;Navbar /&gt;
+            &lt;main className=&quot;flex-1&quot;&gt;
+              &lt;Routes&gt;
+                &lt;Route path=&quot;/&quot; element={&lt;Home /&gt;} /&gt;
+                &lt;Route path=&quot;/markets&quot; element={&lt;MarketsDirectory /&gt;} /&gt;
+                &lt;Route path=&quot;*&quot; element={&lt;Navigate to=&quot;/&quot; replace /&gt;} /&gt;
+              &lt;/Routes&gt;
+            &lt;/main&gt;
+            &lt;FieldGuideChatbot /&gt;
+            &lt;Footer /&gt;
+          &lt;/div&gt;
+        &lt;/BrowserRouter&gt;
+      &lt;/AuthProvider&gt;
+    &lt;/SavedProvider&gt;
+  );
+}
+
+export default App;
+</code></pre>
+<h3>11.2 Real-Time Visitor Simulation (<code>VisitorCounter.jsx</code>)</h3>
+<p>This component uses React hooks and <code>localStorage</code> to simulate an active user base, creating a sense of community engagement.</p>
+<pre><code class="language-jsx">import React, { useState, useEffect } from &#39;react&#39;;
+import { Users } from &#39;lucide-react&#39;;
+
+var STORAGE_KEY = &#39;freshfind_visitor_count&#39;;
+var BASE_COUNT = 1842;
+
+var VisitorCounter = function(props) {
+  var variant = props.variant || &#39;ticker&#39;;
+  
+  const [cnt1, setCnt1] = useState(() =&gt; {
+    var stored = localStorage.getItem(STORAGE_KEY);
+    return stored ? parseInt(stored, 10) : BASE_COUNT;
+  });
+
+  useEffect(() =&gt; {
+    var getTym = () =&gt; Math.floor(Math.random() * (30000 - 15000 + 1)) + 15000;
+    let tmr;
+    
+    var doTick = () =&gt; {
+      tmr = setTimeout(() =&gt; {
+        setCnt1((prev) =&gt; {
+          var val1 = prev + 1;
+          localStorage.setItem(STORAGE_KEY, val1.toString());
+          return val1;
+        });
+        doTick();
+      }, getTym());
+    };
+    
+    doTick();
+    return () =&gt; clearTimeout(tmr);
+  }, []);
+
+  return (
+    &lt;div className=&quot;flex items-center gap-2&quot;&gt;
+      &lt;Users className=&quot;w-4 h-4 text-green-700&quot; /&gt;
+      &lt;span className=&quot;font-bold&quot;&gt;{cnt1.toLocaleString()}&lt;/span&gt;
+    &lt;/div&gt;
+  );
+}
+
+export default VisitorCounter;
+</code></pre>
+
+    </div>
+    
+    <!-- Initialize Syntax Highlighting -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/xml.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            document.querySelectorAll('pre code').forEach((block) => {
+                hljs.highlightElement(block);
+            });
+        });
+    </script>
+</body>
+</html>

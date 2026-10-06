@@ -5,11 +5,12 @@ import VisitorCounter from './VisitorCounter';
 
 export default function Footer() {
   return (
+
     <footer className="bg-[#1C241B] text-[#F7F5ED] border-t-2 border-[#2D5A27] mt-20 font-sans">
-      {/* Top Editorial Dispatch */}
+      
       <div className="border-b border-[#2D5A27]/40 py-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          {/* Brand Manifesto */}
+          
           <div className="md:col-span-2 space-y-3">
             <div className="flex items-center gap-2">
               <div className="w-8 h-8 bg-[#2D5A27] flex items-center justify-center text-[#F3E8B1] border border-[#2D5A27]/60">
@@ -31,7 +32,7 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Quick Routes */}
+          
           <div className="space-y-2">
             <h4 className="text-xs font-mono uppercase tracking-widest text-[#F3E8B1] font-semibold">
               Client Routes
@@ -44,6 +45,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link to="/markets" className="hover:text-[#E2725B] transition-colors">
+
                   Interactive Market Directory & Map
                 </Link>
               </li>
@@ -70,7 +72,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Seasonal Terra Almanac */}
+          
           <div className="space-y-2">
             <h4 className="text-xs font-mono uppercase tracking-widest text-[#F3E8B1] font-semibold">
               Harvest Calendar
@@ -78,6 +80,7 @@ export default function Footer() {
             <p className="text-xs text-[#D6D3C7]/80 leading-relaxed">
               Currently featuring late-summer heirlooms transitioning into autumn orchard flushes: Honeycrisp apples, Chanterelles & Delicata squash.
             </p>
+
             <div className="pt-1">
               <Link
                 to="/produce"
@@ -90,11 +93,13 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Bottom Colophon */}
+      
+
       <div className="py-6 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between text-[11px] text-[#D6D3C7]/60 font-mono gap-3">
         <p>
           &copy; {new Date().getFullYear()} FreshFind Slow-Food Commons. Built for TechWiz 7.
         </p>
+
         <p className="flex items-center gap-1.5">
           <span>Crafted with</span>
           <span className="text-[#E2725B]">♥</span>

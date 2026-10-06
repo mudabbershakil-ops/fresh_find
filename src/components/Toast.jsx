@@ -1,14 +1,16 @@
 import React from 'react';
 import { CheckCircle2, X } from 'lucide-react';
+
 import { useAuth } from '../context/AuthContext';
 
 export default function Toast() {
-  const { toastMessage, setToastMessage } = useAuth();
+  const { toastMessage, setToastMessage }  = useAuth();
 
   if (!toastMessage) return null;
 
   return (
     <div
+
       role="status"
       aria-live="polite"
       className="fixed bottom-6 right-6 z-[120] max-w-sm bg-[#1C241B] text-[#F7F5ED] border-2 border-[#2D5A27] shadow-[4px_6px_0px_0px_rgba(45,90,39,0.3)] p-3.5 rounded-sm flex items-start gap-3 animate-in slide-in-from-bottom-5 fade-in duration-200"
@@ -19,6 +21,7 @@ export default function Toast() {
           FreshFind Dispatch
         </p>
         <p className="text-xs text-[#D6D3C7] mt-0.5 font-sans leading-normal">
+
           {toastMessage}
         </p>
       </div>

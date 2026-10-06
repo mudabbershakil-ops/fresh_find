@@ -3,7 +3,7 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 const AuthContext = createContext();
 
 export function AuthProvider({ children }) {
-  // Load initial simulated user from localStorage if present
+  
   const [currentUser, setCurrentUser] = useState(() => {
     try {
       const stored = localStorage.getItem('freshfind_user');
@@ -15,10 +15,10 @@ export function AuthProvider({ children }) {
   });
 
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
-  const [authModalMode, setAuthModalMode] = useState('signin'); // 'signin' | 'signup'
+  const [authModalMode, setAuthModalMode] = useState('signin'); 
   const [toastMessage, setToastMessage] = useState(null);
 
-  // Open modal with specific initial tab ('signin' or 'signup')
+  
   const openAuthModal = (mode = 'signin') => {
     setAuthModalMode(mode);
     setIsAuthModalOpen(true);

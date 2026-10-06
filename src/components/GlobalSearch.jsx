@@ -1,17 +1,18 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Search, X, MapPin, Sprout, Store, ArrowRight, CornerDownLeft } from 'lucide-react';
+
 import marketsData from '../data/markets.json';
 import produceData from '../data/produce.json';
 
-export default function GlobalSearch({ isMobile = false, onSelect = () => {} }) {
-  const [query, setQuery] = useState('');
+export default function GlobalSearch({ isMobile= false, onSelect  = () => {} }) {
+  const [query, setQuery]= useState('');
   const [isOpen, setIsOpen] = useState(false);
-  const containerRef = useRef(null);
-  const inputRef = useRef(null);
-  const navigate = useNavigate();
+  var containerRef  = useRef(null);
+  let inputRef = useRef(null);
+  let navigate = useNavigate();
 
-  // Close dropdown on click outside
+  
   useEffect(() => {
     function handleClickOutside(event) {
       if (containerRef.current && !containerRef.current.contains(event.target)) {
@@ -19,16 +20,18 @@ export default function GlobalSearch({ isMobile = false, onSelect = () => {} }) 
       }
     }
 
+
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  // Close on Escape key
+  
   useEffect(() => {
     function handleKeyDown(e) {
-      if (e.key === 'Escape') {
+      if (e.key == 'Escape') {
         setIsOpen(false);
         inputRef.current?.blur();
+
       }
     }
 
@@ -36,22 +39,24 @@ export default function GlobalSearch({ isMobile = false, onSelect = () => {} }) 
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
-  // Filter matching results
-  const trimmedQuery = query.trim().toLowerCase();
-  const hasMinChars = trimmedQuery.length >= 2;
+  
+  var trimmedQuery = query.trim().toLowerCase();
+  let hasMinChars  = trimmedQuery.length >= 2;
 
-  const matchedMarkets = hasMinChars
+  var matchedMarkets  = hasMinChars
+
     ? marketsData.filter((m) => {
         return (
           m.name.toLowerCase().includes(trimmedQuery) ||
           m.region.toLowerCase().includes(trimmedQuery) ||
           m.tagline.toLowerCase().includes(trimmedQuery) ||
           m.address.toLowerCase().includes(trimmedQuery)
+
         );
       }).slice(0, 4)
     : [];
 
-  const matchedProduce = hasMinChars
+  var matchedProduce = hasMinChars
     ? produceData.filter((p) => {
         return (
           p.name.toLowerCase().includes(trimmedQuery) ||
@@ -62,41 +67,45 @@ export default function GlobalSearch({ isMobile = false, onSelect = () => {} }) 
       }).slice(0, 4)
     : [];
 
-  const totalMatches = matchedMarkets.length + matchedProduce.length;
+  var totalMatches= matchedMarkets.length + matchedProduce.length;
 
-  const handleSelectMarket = (marketId) => {
+  var handleSelectMarket= (marketId) => {
     navigate(`/markets/${marketId}`);
     setQuery('');
     setIsOpen(false);
     onSelect();
   };
 
-  const handleSelectProduce = (produceName) => {
+
+  var handleSelectProduce  = (produceName) => {
+
     navigate(`/produce?search=${encodeURIComponent(produceName)}`);
     setQuery('');
     setIsOpen(false);
     onSelect();
   };
 
-  const handleClear = () => {
+  let handleClear  = () => {
     setQuery('');
     setIsOpen(false);
     inputRef.current?.focus();
   };
 
-  const handleSubmit = (e) => {
+  var handleSubmit= (e) => {
     e.preventDefault();
     if (!hasMinChars) return;
 
     if (matchedMarkets.length > 0) {
       handleSelectMarket(matchedMarkets[0].id);
     } else if (matchedProduce.length > 0) {
+
       handleSelectProduce(matchedProduce[0].name);
     } else {
       navigate(`/markets?search=${encodeURIComponent(trimmedQuery)}`);
       setQuery('');
       setIsOpen(false);
       onSelect();
+
     }
   };
 
@@ -106,6 +115,7 @@ export default function GlobalSearch({ isMobile = false, onSelect = () => {} }) 
       className={`relative flex-shrink min-w-0 ${
         isMobile
           ? 'w-full'
+
           : 'w-36 md:w-44 lg:w-48 focus-within:w-56 lg:focus-within:w-64 transition-all duration-300'
       }`}
     >
@@ -143,18 +153,19 @@ export default function GlobalSearch({ isMobile = false, onSelect = () => {} }) 
         )}
       </form>
 
-      {/* Floating Suggestions Dropdown */}
+      
       {isOpen && (
         <div
-          className={`absolute top-full mt-2 bg-white border border-[#D6D3C7] shadow-tactile-lg z-50 rounded-sm overflow-hidden font-sans animate-in fade-in zoom-in-95 duration-150 ${
-            isMobile ? 'left-0 right-0 w-full' : 'right-0 w-72 sm:w-80 md:w-96'
+          className={`absolute right-0 top-full mt-2 bg-white border border-[#D6D3C7] shadow-2xl z-[9999] rounded-sm overflow-hidden font-sans animate-in fade-in zoom-in-95 duration-150 ${
+            isMobile ? 'left-0 right-0 w-full' : 'w-72 sm:w-80 md:w-96'
           }`}
         >
           {!hasMinChars ? (
+
             <div className="p-3 text-[11px] font-mono text-[#5C685B] bg-[#F7F5ED]/50 border-b border-crisp">
               Type at least 2 characters to search across markets & seasonal crops...
             </div>
-          ) : totalMatches === 0 ? (
+          ) : totalMatches == 0 ? (
             <div className="p-5 text-center space-y-1">
               <span className="text-xl">🔍</span>
               <p className="font-editorial text-sm font-bold text-[#1C241B]">
@@ -166,7 +177,7 @@ export default function GlobalSearch({ isMobile = false, onSelect = () => {} }) 
             </div>
           ) : (
             <div className="max-h-80 overflow-y-auto divide-y divide-[#E7E4D8]">
-              {/* Category 1: Markets & Pavilions */}
+              
               {matchedMarkets.length > 0 && (
                 <div>
                   <div className="bg-[#F7F5ED] px-3 py-1.5 text-[10px] font-mono uppercase font-bold tracking-wider text-[#2D5A27] flex items-center justify-between border-b border-[#E7E4D8]">
@@ -183,7 +194,9 @@ export default function GlobalSearch({ isMobile = false, onSelect = () => {} }) 
                     {matchedMarkets.map((market) => (
                       <div
                         key={market.id}
+
                         onClick={() => handleSelectMarket(market.id)}
+
                         className="px-3 py-2 hover:bg-[#F7F5ED] cursor-pointer transition-colors flex items-center justify-between group"
                       >
                         <div className="min-w-0 pr-2">
@@ -192,8 +205,10 @@ export default function GlobalSearch({ isMobile = false, onSelect = () => {} }) 
                           </h4>
                           <p className="text-[11px] text-[#5C685B] truncate flex items-center gap-1 mt-0.5">
                             <MapPin className="w-3 h-3 text-[#E2725B] shrink-0" />
+
                             <span>{market.region}</span>
                             <span className="text-[#D6D3C7]">•</span>
+
                             <span className="truncate">{market.tagline}</span>
                           </p>
                         </div>
@@ -204,7 +219,7 @@ export default function GlobalSearch({ isMobile = false, onSelect = () => {} }) 
                 </div>
               )}
 
-              {/* Category 2: Produce & Harvest Items */}
+              
               {matchedProduce.length > 0 && (
                 <div>
                   <div className="bg-[#F7F5ED] px-3 py-1.5 text-[10px] font-mono uppercase font-bold tracking-wider text-[#E2725B] flex items-center justify-between border-b border-[#E7E4D8]">
@@ -220,6 +235,7 @@ export default function GlobalSearch({ isMobile = false, onSelect = () => {} }) 
                   <div className="py-1">
                     {matchedProduce.map((item) => (
                       <div
+
                         key={item.id}
                         onClick={() => handleSelectProduce(item.name)}
                         className="px-3 py-2 hover:bg-[#F7F5ED] cursor-pointer transition-colors flex items-center justify-between group"
@@ -244,7 +260,7 @@ export default function GlobalSearch({ isMobile = false, onSelect = () => {} }) 
                 </div>
               )}
 
-              {/* Bottom Quick Action */}
+              
               <div className="p-2 bg-[#F7F5ED]/60 flex items-center justify-between text-[10px] font-mono text-[#5C685B] border-t border-[#E7E4D8]">
                 <span>Press Enter to select</span>
                 <span className="flex items-center gap-1">
@@ -253,6 +269,7 @@ export default function GlobalSearch({ isMobile = false, onSelect = () => {} }) 
                 </span>
               </div>
             </div>
+
           )}
         </div>
       )}

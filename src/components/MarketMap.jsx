@@ -5,10 +5,9 @@ import { Link } from 'react-router-dom';
 import { MapPin, Clock, ArrowRight, Star } from 'lucide-react';
 import { getMarketCurrentStatus } from '../utils/marketSchedule';
 
-// Create bespoke botanical map pins matching Warm Editorial Earth palette
 function createCustomPin(isSelected = false, isOpen = false) {
-  const bg = isSelected ? '#E2725B' : isOpen ? '#2D5A27' : '#5C685B';
-  const border = '#FFFFFF';
+  var bg = isSelected ? '#E2725B' : isOpen ? '#2D5A27' : '#5C685B';
+  var border = '#FFFFFF';
   
   return L.divIcon({
     className: 'custom-editorial-marker',
@@ -43,7 +42,7 @@ function createCustomPin(isSelected = false, isOpen = false) {
 }
 
 function RecenterMap({ lat, lng, zoom = 12 }) {
-  const map = useMap();
+  var map = useMap();
   useEffect(() => {
     if (lat && lng) {
       map.flyTo([lat, lng], zoom, { duration: 1.2 });
@@ -52,12 +51,32 @@ function RecenterMap({ lat, lng, zoom = 12 }) {
   return null;
 }
 
+function MapInvalidateSize() {
+  const map = useMap();
+  useEffect(() => {
+    map.invalidateSize();
+    const timer = setTimeout(() => {
+      map.invalidateSize();
+    }, 250);
+
+    const handleResize = () => {
+      map.invalidateSize();
+    };
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [map]);
+  return null;
+}
+
 export default function MarketMap({ markets = [], selectedMarketId = null, onSelectMarket = () => {}, center = [37.7749, -122.425], zoom = 12, height = "100%" }) {
   const [mapReady, setMapReady] = useState(false);
 
-  // Find coordinates for selected market if any
-  const selectedMarket = markets.find((m) => m.id === selectedMarketId);
-  const activeCenter = selectedMarket ? [selectedMarket.lat, selectedMarket.lng] : center;
+  var selectedMarket = markets.find((m) => m.id == selectedMarketId);
+  var activeCenter = selectedMarket ? [selectedMarket.lat, selectedMarket.lng] : center;
 
   useEffect(() => {
     setMapReady(true);
@@ -65,7 +84,6 @@ export default function MarketMap({ markets = [], selectedMarketId = null, onSel
 
   return (
     <div className="relative z-10 w-full overflow-hidden border-crisp bg-[#EDEAE1]" style={{ height }}>
-      {/* Editorial Map Badge */}
       <div className="absolute top-3 left-3 z-20 bg-[#FFFFFF]/95 backdrop-blur-sm border-crisp px-3 py-1.5 shadow-tactile-sm text-xs font-semibold tracking-wide text-[#2D5A27] flex items-center gap-2">
         <span className="w-2 h-2 rounded-full bg-[#2D5A27] animate-pulse"></span>
         <span>CARTOGRAPHIC REGIONAL PREVIEW</span>
@@ -79,10 +97,11 @@ export default function MarketMap({ markets = [], selectedMarketId = null, onSel
           className="w-full h-full"
           style={{ minHeight: '380px', height: '100%', width: '100%' }}
         >
-          {/* CartoDB Positron / Voyager muted tiles for beautiful warm editorial styling */}
+          <MapInvalidateSize />
+
           <TileLayer
-            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
-            url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png"
+            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
 
           {selectedMarket && (
@@ -90,8 +109,8 @@ export default function MarketMap({ markets = [], selectedMarketId = null, onSel
           )}
 
           {markets.map((market) => {
-            const isSelected = market.id === selectedMarketId;
-            const status = getMarketCurrentStatus(market.operatingHours);
+            var isSelected = market.id === selectedMarketId;
+            let status = getMarketCurrentStatus(market.operatingHours);
 
             return (
               <Marker

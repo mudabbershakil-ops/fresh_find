@@ -5,6 +5,7 @@ import {
   CheckCircle2, Share2, Bus, Car, Sprout, Store, 
   Check, FileEdit, Trash2, ShieldCheck, HeartHandshake
 } from 'lucide-react';
+
 import marketsData from '../data/markets.json';
 import produceData from '../data/produce.json';
 import { useSaved } from '../context/SavedContext';
@@ -12,14 +13,16 @@ import { getMarketCurrentStatus, formatSchedule } from '../utils/marketSchedule'
 import MarketMap from '../components/MarketMap';
 
 export default function MarketDetail() {
-  const { id } = useParams();
-  const navigate = useNavigate();
+  const { id }  = useParams();
+  let navigate  = useNavigate();
+
   const { 
     isMarketSaved, toggleSaveMarket, 
     marketNotes, updateMarketNote, deleteMarketNote 
   } = useSaved();
 
-  const market = marketsData.find((m) => m.id === id);
+  var market = marketsData.find((m) => m.id == id);
+
 
   const [copiedLink, setCopiedLink] = useState(false);
   const [noteInput, setNoteInput] = useState(marketNotes[id] || '');
@@ -45,30 +48,32 @@ export default function MarketDetail() {
     );
   }
 
-  const status = getMarketCurrentStatus(market.operatingHours);
-  const isSaved = isMarketSaved(market.id);
+  let status  = getMarketCurrentStatus(market.operatingHours);
+  var isSaved  = isMarketSaved(market.id);
 
-  const handleShare = () => {
+
+  let handleShare= () => {
     navigator.clipboard?.writeText(window.location.href);
     setCopiedLink(true);
     setTimeout(() => setCopiedLink(false), 2000);
   };
 
-  const handleSaveNote = (e) => {
+  let handleSaveNote  = (e) => {
     e.preventDefault();
     updateMarketNote(market.id, noteInput);
     setSavedNoteSuccess(true);
     setTimeout(() => setSavedNoteSuccess(false), 2200);
   };
 
-  const handleDeleteNote = () => {
+
+  var handleDeleteNote= () => {
     deleteMarketNote(market.id);
     setNoteInput('');
   };
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-10 font-sans">
-      {/* Back button breadcrumb */}
+      
       <div>
         <button
           onClick={() => navigate(-1)}
@@ -79,10 +84,11 @@ export default function MarketDetail() {
         </button>
       </div>
 
-      {/* Hero Banner Header */}
+      
       <section className="bg-white border border-crisp shadow-tactile-lg overflow-hidden group">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-0">
-          {/* Cover image */}
+          
+
           <div className="lg:col-span-6 relative h-64 lg:h-auto min-h-[320px] bg-[#EDEAE1] border-b lg:border-b-0 lg:border-r border-crisp overflow-hidden">
             <img
               src={market.coverImage}
@@ -103,7 +109,7 @@ export default function MarketDetail() {
             </div>
           </div>
 
-          {/* Details header */}
+          
           <div className="lg:col-span-6 p-6 sm:p-8 flex flex-col justify-between space-y-6">
             <div className="space-y-3">
               <div className="flex items-center justify-between text-xs font-mono text-[#5C685B]">
@@ -116,6 +122,7 @@ export default function MarketDetail() {
                   {market.rating} ({market.reviewCount} inspections)
                 </span>
               </div>
+
 
               <h1 className="font-editorial text-3xl sm:text-4xl font-bold text-[#1C241B] leading-tight">
                 {market.name}
@@ -137,7 +144,8 @@ export default function MarketDetail() {
               </div>
             </div>
 
-            {/* Action Bar */}
+            
+
             <div className="pt-4 border-t border-[#E7E4D8] flex flex-wrap items-center gap-3">
               <button
                 onClick={() => toggleSaveMarket(market.id)}
@@ -163,13 +171,15 @@ export default function MarketDetail() {
         </div>
       </section>
 
-      {/* MAIN TWO-COLUMN BODY */}
+      
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+
         
-        {/* Left Column (7 cols): Editorial Narrative, Vendors, Produce */}
+
+        
         <div className="lg:col-span-7 space-y-8">
           
-          {/* Editorial Description */}
+          
           <section className="bg-white border border-crisp p-6 sm:p-7 shadow-tactile-sm space-y-3">
             <h2 className="font-editorial text-2xl font-bold text-[#1C241B]">
               Field Naturalist Inspection
@@ -184,7 +194,7 @@ export default function MarketDetail() {
             </div>
           </section>
 
-          {/* Certified Vendors Row */}
+          
           <section className="bg-white border border-crisp p-6 sm:p-7 shadow-tactile-sm space-y-5">
             <div className="flex items-center justify-between border-b border-[#E7E4D8] pb-3">
               <div>
@@ -193,6 +203,7 @@ export default function MarketDetail() {
                 </span>
                 <h3 className="font-editorial text-2xl font-bold text-[#1C241B]">
                   Featured Stalls & Producers ({market.vendors.length})
+
                 </h3>
               </div>
               <Store className="w-5 h-5 text-[#2D5A27]" />
@@ -226,15 +237,17 @@ export default function MarketDetail() {
                     </p>
                   </div>
                 </div>
+
               ))}
             </div>
           </section>
 
-          {/* Produce Availability Matrix */}
+          
           <section className="bg-white border border-crisp p-6 sm:p-7 shadow-tactile-sm space-y-4">
             <div className="flex items-center justify-between border-b border-[#E7E4D8] pb-3">
               <div>
                 <span className="text-[10px] font-mono uppercase tracking-wider text-[#2D5A27] font-bold block">
+
                   Soil Inventory
                 </span>
                 <h3 className="font-editorial text-2xl font-bold text-[#1C241B]">
@@ -250,7 +263,7 @@ export default function MarketDetail() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
               {market.produceTypes.map((item, idx) => {
-                const matchedCrop = produceData.find(
+                var matchedCrop  = produceData.find(
                   (p) => p.name.toLowerCase().includes(item.toLowerCase()) || item.toLowerCase().includes(p.name.toLowerCase().split(' ')[0])
                 );
 
@@ -276,7 +289,7 @@ export default function MarketDetail() {
             </div>
           </section>
 
-          {/* CUSTOM USER SESSION NOTES (Stored in localStorage) */}
+          
           <section className="bg-[#FAF8F2] border-2 border-[#2D5A27] p-6 shadow-tactile space-y-4">
             <div className="flex items-center justify-between border-b border-[#D6D3C7] pb-3">
               <div className="flex items-center gap-2">
@@ -326,15 +339,18 @@ export default function MarketDetail() {
             </form>
           </section>
 
+
         </div>
 
-        {/* Right Column (5 cols): Operational Schedule, Amenities, Transit, Mini Map */}
+        
         <div className="lg:col-span-5 space-y-6">
           
-          {/* Operating Hours Box */}
+          
           <div className="bg-white border border-crisp p-6 shadow-tactile-sm space-y-4">
             <div className="flex items-center gap-2 border-b border-[#E7E4D8] pb-3 text-[#1C241B]">
+
               <Calendar className="w-5 h-5 text-[#2D5A27]" />
+
               <h3 className="font-editorial text-xl font-bold">
                 Operating Schedule
               </h3>
@@ -342,7 +358,7 @@ export default function MarketDetail() {
 
             <div className="space-y-2">
               {market.operatingHours.map((sched, idx) => {
-                const isToday = sched.day.toLowerCase() === status.currentDayName?.toLowerCase();
+                var isToday= sched.day.toLowerCase() == status.currentDayName?.toLowerCase();
 
                 return (
                   <div
@@ -355,6 +371,7 @@ export default function MarketDetail() {
                   >
                     <span className="flex items-center gap-2">
                       {isToday && <span className="w-1.5 h-1.5 rounded-full bg-[#2D5A27]" />}
+
                       <span>{sched.day}</span>
                     </span>
                     <span className="text-[#1C241B]">
@@ -366,15 +383,17 @@ export default function MarketDetail() {
             </div>
           </div>
 
-          {/* Amenities & Standards */}
+          
           <div className="bg-white border border-crisp p-6 shadow-tactile-sm space-y-3">
             <h3 className="font-editorial text-xl font-bold text-[#1C241B] border-b border-[#E7E4D8] pb-2">
               Pavilion Amenities
             </h3>
             <div className="flex flex-wrap gap-2 pt-1">
               {market.amenities.map((item, idx) => (
+
                 <span
                   key={idx}
+
                   className="filter-pill px-2.5 py-1 text-xs font-mono bg-[#F7F5ED] text-[#2D5A27] border border-[#D6D3C7] flex items-center gap-1.5"
                 >
                   <Check className="w-3 h-3 text-[#E2725B]" />
@@ -384,8 +403,9 @@ export default function MarketDetail() {
             </div>
           </div>
 
-          {/* Transit & Parking Info */}
+          
           <div className="bg-white border border-crisp p-6 shadow-tactile-sm space-y-3">
+
             <h3 className="font-editorial text-xl font-bold text-[#1C241B] border-b border-[#E7E4D8] pb-2">
               Getting There
             </h3>
@@ -407,7 +427,7 @@ export default function MarketDetail() {
             </div>
           </div>
 
-          {/* Mini Embedded Cartographic Preview */}
+          
           <div className="bg-white border border-crisp p-1 shadow-tactile space-y-1">
             <div className="p-2 border-b border-crisp text-xs font-mono uppercase text-[#2D5A27] font-bold flex items-center justify-between">
               <span>Cartographic Location</span>

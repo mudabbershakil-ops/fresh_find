@@ -5,8 +5,9 @@ import {
   Leaf, Award, Sparkles, ArrowRight, RefreshCw, Scale 
 } from 'lucide-react';
 
+
 export default function About() {
-  const pillars = [
+  var pillars = [
     {
       id: 'terroir',
       number: '01',
@@ -36,7 +37,7 @@ export default function About() {
     }
   ];
 
-  const team = [
+  var team  = [
     {
       name: 'Elena Rostova',
       role: 'Lead Agrarian Curator & Soil Ecologist',
@@ -59,6 +60,7 @@ export default function About() {
       bio: 'Author of "The Living Furrow". Dr. Thorne compiles our seasonal harvest calendars, chronicling microclimate flushes from coastal marine layer orchards to mountain fungal forays.',
       location: 'Highland Botanical Grove',
       avatarInitial: 'AT',
+
       focus: 'Phenology & Phenotypes'
     },
     {
@@ -71,7 +73,7 @@ export default function About() {
     }
   ];
 
-  const impactMetrics = [
+  var impactMetrics= [
     { value: '6', label: 'Certified Pavilions', detail: 'Across the regional bioregion' },
     { value: '48+', label: 'Independent Farmsteads', detail: 'Family-owned & generational growers' },
     { value: '$120K+', label: 'SNAP Matching Funds', detail: 'Distributed to community shoppers' },
@@ -79,20 +81,22 @@ export default function About() {
   ];
 
   return (
+
     <div className="bg-[#F7F5ED] min-h-screen text-[#1C241B]">
-      {/* Editorial Breadcrumb Header */}
+      
       <div className="border-b border-crisp bg-[#EDEAE0]/60 py-3 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto flex items-center justify-between text-xs font-mono text-[#5C685B]">
           <div className="flex items-center gap-2">
             <Link to="/" className="hover:text-[#2D5A27] transition">FreshFind</Link>
             <span>/</span>
             <span className="text-[#1C241B] font-semibold">About Our Movement</span>
+
           </div>
           <span className="hidden sm:inline text-[#2D5A27] font-semibold">Field Dispatch Volume VII</span>
         </div>
       </div>
 
-      {/* Hero Section */}
+      
       <section className="py-14 sm:py-20 px-4 sm:px-6 lg:px-8 border-b border-crisp relative overflow-hidden bg-radial-gradient">
         <div className="max-w-4xl mx-auto text-center space-y-5">
           <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#2D5A27]/10 border border-[#2D5A27]/30 text-[#2D5A27] text-xs font-mono uppercase tracking-widest rounded-full font-bold">
@@ -128,7 +132,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* Impact Numbers Bar */}
+      
       <section className="border-b border-crisp bg-[#1C241B] text-[#F7F5ED] py-10 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
           {impactMetrics.map((metric, idx) => (
@@ -144,10 +148,11 @@ export default function About() {
               </p>
             </div>
           ))}
+
         </div>
       </section>
 
-      {/* Mission & Story Narrative */}
+      
       <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 border-b border-crisp max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           <div className="lg:col-span-6 space-y-5">
@@ -172,10 +177,11 @@ export default function About() {
             <div className="pt-2 flex items-center gap-3 text-xs font-mono text-[#2D5A27] font-semibold">
               <ShieldCheck className="w-4 h-4 text-[#2D5A27]" />
               <span>Certified TechWiz 7 Open-Access Architecture • No Commercial Ads</span>
+
             </div>
           </div>
 
-          {/* Asymmetric Editorial Visual Quote */}
+          
           <div className="lg:col-span-6">
             <div className="bg-[#EDEAE0] p-8 sm:p-10 border-2 border-[#1C241B] shadow-[6px_8px_0px_0px_rgba(28,36,27,0.15)] relative">
               <div className="w-10 h-10 bg-[#2D5A27] text-[#F3E8B1] flex items-center justify-center font-editorial text-2xl font-bold mb-4">
@@ -196,7 +202,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* Core Pillars Grid */}
+      
       <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-[#EDEAE0]/40 border-b border-crisp">
         <div className="max-w-7xl mx-auto space-y-12">
           <div className="text-center max-w-2xl mx-auto space-y-3">
@@ -213,7 +219,8 @@ export default function About() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
             {pillars.map((pillar) => {
-              const Icon = pillar.icon;
+
+              let Icon  = pillar.icon;
               return (
                 <div
                   key={pillar.id}
@@ -221,6 +228,7 @@ export default function About() {
                 >
                   <div className="space-y-4">
                     <div className="flex items-center justify-between">
+
                       <span className="font-mono text-xs font-bold text-[#E2725B] bg-[#E2725B]/10 px-2.5 py-0.5 rounded-full">
                         PILLAR {pillar.number}
                       </span>
@@ -259,7 +267,8 @@ export default function About() {
         </div>
       </section>
 
-      {/* Team / Field Naturalists Section */}
+      
+
       <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 border-b border-crisp max-w-7xl mx-auto">
         <div className="space-y-12">
           <div className="text-center max-w-2xl mx-auto space-y-3">
@@ -270,6 +279,7 @@ export default function About() {
               The Naturalists Behind the Field Guide
             </h2>
             <p className="text-xs sm:text-sm text-[#5C685B]">
+
               Passionate botanists, soil researchers, and community advocates maintaining our seasonal intelligence.
             </p>
           </div>
@@ -279,10 +289,12 @@ export default function About() {
               <div
                 key={idx}
                 className="bg-white border border-crisp p-5 sm:p-6 shadow-tactile card-editorial flex flex-col justify-between"
+
               >
                 <div className="space-y-3">
                   <div className="flex items-center justify-between">
                     <div className="w-12 h-12 rounded-full bg-[#2D5A27] text-[#F3E8B1] flex items-center justify-center font-mono font-bold text-sm border-2 border-[#1E3D1A]">
+
                       {member.avatarInitial}
                     </div>
                     <span className="text-[10px] font-mono text-[#2D5A27] font-semibold bg-[#2D5A27]/10 px-2 py-0.5 rounded-full">
@@ -293,6 +305,7 @@ export default function About() {
                   <div>
                     <h3 className="font-editorial text-lg font-bold text-[#1C241B]">
                       {member.name}
+
                     </h3>
                     <p className="text-xs text-[#E2725B] font-mono font-medium">
                       {member.role}
@@ -314,7 +327,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* Bottom CTA Section */}
+      
       <section className="py-14 px-4 sm:px-6 lg:px-8 bg-[#1C241B] text-[#F7F5ED] text-center">
         <div className="max-w-2xl mx-auto space-y-4">
           <Sprout className="w-8 h-8 text-[#F3E8B1] mx-auto" />
@@ -336,6 +349,7 @@ export default function About() {
               className="btn-secondary text-xs px-5 py-2.5 cursor-pointer text-white bg-[#2D5A27]/60 border-[#2D5A27] hover:bg-[#2D5A27]"
             >
               Connect with Field Office
+
             </Link>
           </div>
         </div>
@@ -354,6 +368,7 @@ function CheckCircle2Icon(props) {
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
+
     >
       <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" />
       <path d="m9 12 2 2 4-4" />

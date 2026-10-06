@@ -1,6 +1,7 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { 
+
   Sprout, Search, Filter, Bookmark, CheckCircle2, 
   MapPin, ArrowRight, X, Calendar, Sparkles, ChefHat, 
   ShieldAlert, Info, Layers
@@ -9,26 +10,27 @@ import produceData from '../data/produce.json';
 import marketsData from '../data/markets.json';
 import { useSaved } from '../context/SavedContext';
 
-const DEFAULT_BOTANICAL_IMAGE = "https://images.unsplash.com/photo-1610832958506-aa56368176cf?auto=format&fit=crop&w=600&q=80";
+var DEFAULT_BOTANICAL_IMAGE= "https://images.unsplash.com/photo-1610832958506-aa56368176cf?auto=format&fit=crop&w=600&q=80";
 
 export default function SeasonalProduce() {
-  const [searchParams] = useSearchParams();
-  const initialSearch = searchParams.get('search') || '';
+  const [searchParams]= useSearchParams();
+  var initialSearch= searchParams.get('search') || '';
 
-  const [selectedSeason, setSelectedSeason] = useState('All');
-  const [selectedCategory, setSelectedCategory] = useState('All');
-  const [searchQuery, setSearchQuery] = useState(initialSearch);
+  const [selectedSeason, setSelectedSeason]= useState('All');
+  const [selectedCategory, setSelectedCategory]  = useState('All');
+  const [searchQuery, setSearchQuery]  = useState(initialSearch);
   const [activeModalItem, setActiveModalItem] = useState(null);
 
-  const { toggleSaveProduce, isProduceSaved } = useSaved();
+  const { toggleSaveProduce, isProduceSaved }= useSaved();
 
-  // Synchronize when search query parameter changes
+  
   useEffect(() => {
-    const param = searchParams.get('search');
-    if (param !== null) {
+    var param  = searchParams.get('search');
+    if (param != null) {
+
       setSearchQuery(param);
-      // Auto-open modal if exact produce match found
-      const exactMatch = produceData.find(
+      
+      var exactMatch  = produceData.find(
         (p) => p.name.toLowerCase() === param.toLowerCase() || p.id === param.toLowerCase()
       );
       if (exactMatch) {
@@ -37,29 +39,29 @@ export default function SeasonalProduce() {
     }
   }, [searchParams]);
 
-  const seasons = ['All', 'Spring', 'Summer', 'Autumn', 'Winter'];
-  const categories = ['All', 'Fruit', 'Vegetable', 'Fungi & Herbs', 'Artisan & Dairy'];
+  var seasons  = ['All', 'Spring', 'Summer', 'Autumn', 'Winter'];
+  let categories  = ['All', 'Fruit', 'Vegetable', 'Fungi & Herbs', 'Artisan & Dairy'];
 
-  // Filter produce
-  const filteredProduce = useMemo(() => {
+  
+  var filteredProduce = useMemo(() => {
     return produceData.filter((item) => {
-      // Season filter
-      if (selectedSeason !== 'All') {
-        const matchesSeason = item.peakSeasons.includes(selectedSeason) || item.allSeasons.includes(selectedSeason);
+      
+      if (selectedSeason != 'All') {
+        var matchesSeason  = item.peakSeasons.includes(selectedSeason) || item.allSeasons.includes(selectedSeason);
         if (!matchesSeason) return false;
       }
 
-      // Category filter
-      if (selectedCategory !== 'All' && item.category !== selectedCategory) {
+      
+      if (selectedCategory !== 'All' && item.category != selectedCategory) {
         return false;
       }
 
-      // Search query
+      
       if (searchQuery.trim()) {
-        const q = searchQuery.toLowerCase();
-        const matchesName = item.name.toLowerCase().includes(q);
-        const matchesFlavor = item.flavorProfile.toLowerCase().includes(q);
-        const matchesCulinary = item.culinaryUses.some((c) => c.toLowerCase().includes(q));
+        var q = searchQuery.toLowerCase();
+        var matchesName  = item.name.toLowerCase().includes(q);
+        var matchesFlavor= item.flavorProfile.toLowerCase().includes(q);
+        var matchesCulinary = item.culinaryUses.some((c) => c.toLowerCase().includes(q));
         if (!matchesName && !matchesFlavor && !matchesCulinary) return false;
       }
 
@@ -69,7 +71,7 @@ export default function SeasonalProduce() {
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-10 font-sans">
-      {/* Editorial Header */}
+      
       <div className="border-b border-crisp pb-6">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
           <div>
@@ -90,15 +92,17 @@ export default function SeasonalProduce() {
             <span className="font-bold text-[#2D5A27] bg-white px-2.5 py-1 border border-crisp shadow-tactile-sm">
               {filteredProduce.length} of {produceData.length} Cataloged
             </span>
+
           </div>
         </div>
       </div>
 
-      {/* FILTER & MATRIX CONTROLS */}
+
+      
       <div className="bg-white border border-crisp p-5 shadow-tactile-sm space-y-5">
-        {/* Search & Season Tabs */}
+        
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 items-center">
-          {/* Search */}
+          
           <div className="lg:col-span-5 relative">
             <Search className="w-4 h-4 text-[#5C685B] absolute left-3 top-1/2 -translate-y-1/2" />
             <input
@@ -118,7 +122,7 @@ export default function SeasonalProduce() {
             )}
           </div>
 
-          {/* Season Selector Tabs with Tactile Hover & Scale */}
+          
           <div className="lg:col-span-7 flex flex-wrap items-center gap-2 justify-start lg:justify-end">
             <span className="text-[10px] font-mono uppercase tracking-wider text-[#5C685B] mr-1 hidden sm:inline">
               Peak Season:
@@ -139,7 +143,8 @@ export default function SeasonalProduce() {
           </div>
         </div>
 
-        {/* Category Pills with Smooth Hover Fill and Scale */}
+
+        
         <div className="pt-3 border-t border-[#E7E4D8] flex flex-wrap items-center gap-2">
           <span className="text-[10px] font-mono uppercase tracking-wider text-[#5C685B] mr-2">
             Classification:
@@ -149,7 +154,7 @@ export default function SeasonalProduce() {
               key={category}
               onClick={() => setSelectedCategory(category)}
               className={`filter-pill px-3.5 py-1.5 text-xs rounded-full font-medium ${
-                selectedCategory === category
+                selectedCategory == category
                   ? 'bg-[#1C241B] text-[#F3E8B1] shadow-tactile-sm'
                   : 'bg-[#F7F5ED] text-[#5C685B] hover:bg-[#EFECE1] hover:text-[#1C241B]'
               }`}
@@ -160,11 +165,11 @@ export default function SeasonalProduce() {
         </div>
       </div>
 
-      {/* MATRIX GRID OF PRODUCE CARDS */}
+      
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {filteredProduce.map((item) => {
-          const isSaved = isProduceSaved(item.id);
-          const linkedMarkets = marketsData.filter((m) => item.linkedMarketIds.includes(m.id));
+          var isSaved = isProduceSaved(item.id);
+          let linkedMarkets = marketsData.filter((m) => item.linkedMarketIds.includes(m.id));
 
           return (
             <article
@@ -172,14 +177,14 @@ export default function SeasonalProduce() {
               className="card-editorial flex flex-col justify-between group cursor-pointer"
             >
               <div>
-                {/* Image & Badges with Zoom Effect */}
+                
                 <div className="relative h-48 overflow-hidden border-b border-crisp bg-[#EDEAE1]">
                   <img
                     src={item.image}
                     alt={item.name}
                     onError={(e) => {
                       e.currentTarget.onerror = null;
-                      e.currentTarget.src = DEFAULT_BOTANICAL_IMAGE;
+                      e.currentTarget.src= DEFAULT_BOTANICAL_IMAGE;
                     }}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
@@ -193,6 +198,7 @@ export default function SeasonalProduce() {
                     onClick={(e) => {
                       e.stopPropagation();
                       toggleSaveProduce(item.id);
+
                     }}
                     className={`absolute top-3 right-3 p-2 border btn-icon-tactile ${
                       isSaved
@@ -205,7 +211,7 @@ export default function SeasonalProduce() {
                   </button>
                 </div>
 
-                {/* Details */}
+                
                 <div className="p-5 space-y-3">
                   <div className="flex items-center justify-between text-xs text-[#5C685B] font-mono">
                     <span className="uppercase text-[#2D5A27] font-semibold">
@@ -222,9 +228,10 @@ export default function SeasonalProduce() {
                     {item.flavorProfile}
                   </p>
 
-                  {/* Peak Seasons Tag */}
+                  
                   <div className="pt-1 flex items-center gap-1.5">
                     <span className="text-[10px] font-mono uppercase text-[#5C685B]">
+
                       Peak:
                     </span>
                     {item.peakSeasons.map((s) => (
@@ -237,7 +244,7 @@ export default function SeasonalProduce() {
                     ))}
                   </div>
 
-                  {/* Linked Markets Stalls */}
+                  
                   <div className="pt-2 text-xs space-y-1">
                     <span className="block text-[10px] uppercase font-mono tracking-wider text-[#5C685B]">
                       Stocked At:
@@ -257,7 +264,7 @@ export default function SeasonalProduce() {
                 </div>
               </div>
 
-              {/* Card Footer: Modal Trigger */}
+              
               <div className="p-5 pt-0 border-t border-[#E7E4D8] mt-4 flex items-center justify-between">
                 <span className="text-[11px] font-mono text-[#5C685B]">
                   Storage: {item.storageTip.slice(0, 24)}...
@@ -275,7 +282,7 @@ export default function SeasonalProduce() {
         })}
       </div>
 
-      {/* DETAILED FIELD PROFILE MODAL */}
+      
       {activeModalItem && (
         <div
           role="dialog"
@@ -302,7 +309,7 @@ export default function SeasonalProduce() {
                   alt={activeModalItem.name}
                   onError={(e) => {
                     e.currentTarget.onerror = null;
-                    e.currentTarget.src = DEFAULT_BOTANICAL_IMAGE;
+                    e.currentTarget.src  = DEFAULT_BOTANICAL_IMAGE;
                   }}
                   className="w-full h-full object-cover"
                 />
@@ -324,7 +331,7 @@ export default function SeasonalProduce() {
               </div>
             </div>
 
-            {/* Culinary & Storage Grid */}
+            
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
               <div className="p-4 bg-[#F7F5ED] border border-crisp space-y-2">
                 <div className="flex items-center gap-1.5 text-xs font-mono uppercase font-bold text-[#2D5A27]">
@@ -334,6 +341,7 @@ export default function SeasonalProduce() {
                 <ul className="text-xs text-[#5C685B] space-y-1 list-disc list-inside">
                   {activeModalItem.culinaryUses.map((use, idx) => (
                     <li key={idx}>{use}</li>
+
                   ))}
                 </ul>
               </div>
@@ -341,7 +349,9 @@ export default function SeasonalProduce() {
               <div className="p-4 bg-[#F7F5ED] border border-crisp space-y-2">
                 <div className="flex items-center gap-1.5 text-xs font-mono uppercase font-bold text-[#2D5A27]">
                   <Info className="w-4 h-4 text-[#2D5A27]" />
+
                   <span>Cellar & Storage Wisdom</span>
+
                 </div>
                 <p className="text-xs text-[#5C685B] leading-relaxed">
                   {activeModalItem.storageTip}
@@ -352,7 +362,7 @@ export default function SeasonalProduce() {
               </div>
             </div>
 
-            {/* Stocked Markets */}
+            
             <div className="p-4 bg-[#F3E8B1]/30 border border-[#D6D3C7] space-y-2">
               <span className="text-xs font-mono uppercase font-bold text-[#2D5A27] block">
                 Where to Find in Local Stalls:
@@ -374,7 +384,7 @@ export default function SeasonalProduce() {
               </div>
             </div>
 
-            {/* Modal Actions */}
+            
             <div className="pt-2 flex items-center justify-between border-t border-crisp">
               <button
                 onClick={() => toggleSaveProduce(activeModalItem.id)}
@@ -395,6 +405,7 @@ export default function SeasonalProduce() {
             </div>
           </div>
         </div>
+
       )}
     </div>
   );

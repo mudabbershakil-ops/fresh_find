@@ -5,35 +5,35 @@ import { useAuth } from '../context/AuthContext';
 export default function AuthModal() {
   const { isAuthModalOpen, authModalMode, closeAuthModal, setAuthModalMode, login, signup } = useAuth();
 
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail]= useState('');
+  const [password, setPassword]  = useState('');
   const [fullName, setFullName] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const [formError, setFormError] = useState('');
+  const [formError, setFormError]= useState('');
 
-  const modalRef = useRef(null);
-  const emailInputRef = useRef(null);
+  var modalRef= useRef(null);
+  var emailInputRef = useRef(null);
 
-  // Focus input and lock body scrolling when open
+  
   useEffect(() => {
     if (isAuthModalOpen) {
-      document.body.style.overflow = 'hidden';
-      const timer = setTimeout(() => {
+      document.body.style.overflow= 'hidden';
+      var timer= setTimeout(() => {
         if (emailInputRef.current) emailInputRef.current.focus();
       }, 50);
       return () => {
         clearTimeout(timer);
-        document.body.style.overflow = 'unset';
+        document.body.style.overflow  = 'unset';
       };
     } else {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow  = 'unset';
     }
   }, [isAuthModalOpen]);
 
-  // Handle ESC key to dismiss modal
+  
   useEffect(() => {
-    const handleKeyDown = (e) => {
-      if (e.key === 'Escape' && isAuthModalOpen) {
+    var handleKeyDown  = (e) => {
+      if (e.key == 'Escape' && isAuthModalOpen) {
         closeAuthModal();
       }
     };
@@ -43,9 +43,12 @@ export default function AuthModal() {
 
   if (!isAuthModalOpen) return null;
 
-  const handleSubmit = (e) => {
+
+
+  var handleSubmit  = (e) => {
     e.preventDefault();
     setFormError('');
+
 
     if (!email || !email.includes('@')) {
       setFormError('Please enter a valid email address.');
@@ -55,20 +58,21 @@ export default function AuthModal() {
       setFormError('Password must be at least 4 characters.');
       return;
     }
-    if (authModalMode === 'signup' && !fullName.trim()) {
+    if (authModalMode == 'signup' && !fullName.trim()) {
       setFormError('Please enter your full name or market handle.');
       return;
     }
 
     setIsLoading(true);
 
-    // Simulate 1-second authentication latency
+    
     setTimeout(() => {
       setIsLoading(false);
-      const userData = {
+      var userData = {
         name: authModalMode === 'signup' ? fullName.trim() : fullName.trim() || email.split('@')[0],
         email: email.trim(),
       };
+
 
       if (authModalMode === 'signup') {
         signup(userData);
@@ -76,7 +80,7 @@ export default function AuthModal() {
         login(userData);
       }
 
-      // Reset form fields
+      
       setEmail('');
       setPassword('');
       setFullName('');
@@ -84,11 +88,12 @@ export default function AuthModal() {
     }, 900);
   };
 
-  const handleBackdropClick = (e) => {
+  let handleBackdropClick  = (e) => {
     if (modalRef.current && !modalRef.current.contains(e.target)) {
       closeAuthModal();
     }
   };
+
 
   return (
     <div
@@ -102,7 +107,7 @@ export default function AuthModal() {
         ref={modalRef}
         className="relative z-[110] w-full max-w-md bg-[#F7F5ED] border-2 border-[#1C241B] shadow-[6px_8px_0px_0px_rgba(28,36,27,0.25)] rounded-sm overflow-hidden animate-in zoom-in-95 duration-200"
       >
-        {/* Editorial Header Banner */}
+        
         <div className="bg-[#1C241B] text-[#F7F5ED] px-6 py-4 flex items-center justify-between border-b border-[#2D5A27]">
           <div className="flex items-center gap-2">
             <div className="w-7 h-7 bg-[#2D5A27] text-[#F3E8B1] flex items-center justify-center rounded-sm">
@@ -116,7 +121,9 @@ export default function AuthModal() {
                 Market Patron Portal
               </span>
             </div>
+
           </div>
+
 
           <button
             onClick={closeAuthModal}
@@ -125,18 +132,20 @@ export default function AuthModal() {
           >
             <X className="w-5 h-5" />
           </button>
+
         </div>
 
-        {/* Tab Switcher */}
+        
         <div className="flex border-b border-crisp bg-[#EDEAE0]">
           <button
             type="button"
             onClick={() => {
+
               setAuthModalMode('signin');
               setFormError('');
             }}
             className={`flex-1 py-3 text-xs font-mono uppercase tracking-wider font-semibold cursor-pointer transition-colors ${
-              authModalMode === 'signin'
+              authModalMode == 'signin'
                 ? 'bg-[#F7F5ED] text-[#2D5A27] border-b-2 border-[#2D5A27]'
                 : 'text-[#5C685B] hover:text-[#1C241B]'
             }`}
@@ -150,23 +159,25 @@ export default function AuthModal() {
               setFormError('');
             }}
             className={`flex-1 py-3 text-xs font-mono uppercase tracking-wider font-semibold cursor-pointer transition-colors ${
-              authModalMode === 'signup'
+              authModalMode == 'signup'
                 ? 'bg-[#F7F5ED] text-[#2D5A27] border-b-2 border-[#2D5A27]'
                 : 'text-[#5C685B] hover:text-[#1C241B]'
             }`}
           >
+
             Create Account
           </button>
         </div>
 
-        {/* Form Content */}
+        
         <div className="p-6 sm:p-7">
           <div className="mb-5 text-center">
             <h3 id="auth-modal-title" className="font-editorial text-2xl font-bold text-[#1C241B]">
+
               {authModalMode === 'signin' ? 'Welcome Back, Neighbor' : 'Join Our Slow-Food Circle'}
             </h3>
             <p className="text-xs text-[#5C685B] mt-1 font-sans">
-              {authModalMode === 'signin'
+              {authModalMode == 'signin'
                 ? 'Access your bookmarked market stalls and custom shopping notes.'
                 : 'Create your local community patron profile to curate harvest notes.'}
             </p>
@@ -176,11 +187,12 @@ export default function AuthModal() {
             <div className="mb-4 p-2.5 bg-[#E2725B]/15 border border-[#E2725B] text-[#9c2f18] text-xs rounded-sm font-sans flex items-center gap-2">
               <span className="font-bold font-mono">Notice:</span>
               <span>{formError}</span>
+
             </div>
           )}
 
           <form onSubmit={handleSubmit} className="space-y-4">
-            {authModalMode === 'signup' && (
+            {authModalMode == 'signup' && (
               <div>
                 <label className="block text-xs font-mono uppercase tracking-wider text-[#5C685B] mb-1 font-medium">
                   Full Name / Market Handle
@@ -203,12 +215,15 @@ export default function AuthModal() {
               <label className="block text-xs font-mono uppercase tracking-wider text-[#5C685B] mb-1 font-medium">
                 Email Address
               </label>
+
               <div className="relative">
                 <Mail className="w-4 h-4 text-[#5C685B] absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none" />
                 <input
                   ref={emailInputRef}
                   type="email"
+
                   required
+
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="shopper@marketlane.org"
@@ -229,6 +244,7 @@ export default function AuthModal() {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="••••••••"
+
                   className="w-full pl-9 pr-3 py-2 text-sm bg-white border border-[#D6D3C7] focus:border-[#2D5A27] focus:ring-1 focus:ring-[#2D5A27] outline-none text-[#1C241B] rounded-sm transition font-sans"
                 />
               </div>
@@ -247,7 +263,7 @@ export default function AuthModal() {
                   </>
                 ) : (
                   <>
-                    <span>{authModalMode === 'signin' ? 'Sign In to Account' : 'Create Patron Account'}</span>
+                    <span>{authModalMode == 'signin' ? 'Sign In to Account' : 'Create Patron Account'}</span>
                     <ArrowRight className="w-4 h-4" />
                   </>
                 )}
@@ -255,7 +271,7 @@ export default function AuthModal() {
             </div>
           </form>
 
-          {/* Secondary Action: Continue as Guest */}
+          
           <div className="mt-4 pt-4 border-t border-crisp flex flex-col items-center gap-3">
             <button
               type="button"
